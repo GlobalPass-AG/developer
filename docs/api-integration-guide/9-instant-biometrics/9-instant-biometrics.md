@@ -1,8 +1,4 @@
----
-sidebar_position: 10
----
-
-# Instant Biometrics
+# 9 Instant Biometrics
 
 Widget source URLs:
 
@@ -14,18 +10,18 @@ All backend API calls should be executed sending _access\_token_ in requests hea
 
 To **initiate** instant biometrics process, make an HTTP POST request to:
 
-/api/v2/instant-biometrics
+_/api/v2/instant-biometrics_
 
 - Instant biometrics are allowed only for already Accepted or Rejected ConditionsNotMet KYC screenings
 - It's possible to provide instant biometrics check timeout in minutes before it expires in GlobalPass in case user abandons the process
 
 To **fetch** instant biometric details, make an HTTP GET request to:
 
-/api/v2/instant-biometrics/{instantBiometricsId}
+_/api/v2/instant-biometrics/{instantBiometricsId}_
 
 To **cancel** initiated instant biometric process, make an HTTP POST request to:
 
-/api/v2/instant-biometrics/{instantBiometricsId}/cancel
+_/api/v2/instant-biometrics/{instantBiometricsId}/cancel_
 
 > Possible **status** values:
 - Initiated - Process initiated. Waiting for user actions,

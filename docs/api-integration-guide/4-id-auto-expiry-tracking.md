@@ -1,8 +1,4 @@
----
-sidebar_position: 5
----
-
-# ID Auto-Expiry Tracking
+# 4 ID Auto-Expiry Tracking
 
 ID Auto-Expiry tracking is an optional feature, and GlobalPass support should be informed to enable the tracking upon integration of the feature; otherwise, screening statuses will not change and the webhooks will not be sent.
 
@@ -14,7 +10,7 @@ When an identity document of a verified user approaches expiry in _ **n** _ mont
 {
     "type": "screening.document.expiring",
     "data": {
-        "ScreeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
+        "screeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
     },
     "secret": "secret"
 }

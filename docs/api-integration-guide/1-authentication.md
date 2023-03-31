@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# Authentication
+# 1 Authentication
 
 To access our portal, go to:
 
@@ -22,16 +18,16 @@ The Screenings API requires an access token. To get it, you must first make an H
 
 Request headers:
 
-**Authorization:** Basic EncodeBase64("your\_client\_id:your\_client\_secret")
+> Authorization: Basic EncodeBase64("your_client_id:your_client_secret")
 
-**Content-Type:** application/x-www-form-urlencoded
+> Content-Type: application/x-www-form-urlencoded
 
-Request body:
+Request data:
 
-**grant_type : client_credentials**
+> grant_type=client_credentials
 
 ```bash title="Example request"
-curl --location --request POST 'https://identity-test.globalpass.ch/connect/token' --header 'Authorization: Basic NmY5YzY3ZGQtMzAxOC00OTlkLWFlZGUtMzg2NTlhNTQ2ODkwOktCb0lzcGplRks5bFhZU25ET1ZN' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant\_type=client\_credentials'
+curl --location --request POST 'https://identity-test.globalpass.ch/connect/token' --header 'Authorization: Basic NmY5YzY3ZGQtMzAxOC00OTlkLWFlZGUtMzg2NTlhNTQ2ODkwOktCb0lzcGplRks5bFhZU25ET1ZN' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'grant_type=client_credentials'
 ```
 
 ```js title="Example response"

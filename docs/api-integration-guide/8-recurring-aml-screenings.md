@@ -1,8 +1,4 @@
----
-sidebar_position: 8
----
-
-# Recurring AML Screenings
+# 8 Recurring AML Screenings
 
 Recurring AML Screenings is an additional compliance service offered by GlobalPass, which re-screens verified users through AML lists at required periods of time. Initiation of the service can be requested via contacting GlobalPass support. If the service is not requested, no webhooks will be sent and integration is not needed.
 
@@ -12,7 +8,7 @@ When new AML-related information is available in a specific screening after a re
 {
     "type": "screening.aml.change",
     "data": {
-        "ScreeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
+        "screeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
     },
     "secret": "secret"
 }

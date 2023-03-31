@@ -6,6 +6,7 @@ type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
+  link: string;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -14,13 +15,13 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Documentation on how to integrate GlobalPass.
       </>
     ),
+    link: '/docs/api-integration-guide/authentication',
   },
   // {
-  //   title: 'Focus on What Matters',
+  //   title: 'Android',
   //   Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
   //   description: (
   //     <>
@@ -30,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   //   ),
   // },
   // {
-  //   title: 'Powered by React',
+  //   title: 'iOS',
   //   Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
   //   description: (
   //     <>
@@ -41,14 +42,14 @@ const FeatureList: FeatureItem[] = [
   // },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, description, link}: FeatureItem) {
   return (
     <div className={clsx('col col--12')}>
-      <div className="text--center">
+      {/* <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
-      </div>
+      </div> */}
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+        <h3><a href={link}>{title}</a></h3>
         <p>{description}</p>
       </div>
     </div>

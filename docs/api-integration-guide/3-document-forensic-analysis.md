@@ -1,22 +1,18 @@
----
-sidebar_position: 4
----
+# 3 Document Forensic Analysis
 
-# Document Forensic Analysis
+Begin by getting a screening token as described in [KYC screenings](kyc-screenings/initiating-a-kyc-screening), or use a screening token that belongs to a specific user whose document you are about to send to forensic analysis.
 
-Begin by getting a screening token as described in [KYC screenings](kyc-screenings/initiating-a-kyc-screening), or use a screening token that belongs to a specific user whose document you are about to send to forensic analysis. Then, make an HTTP POST request to:
+Make a HTTP POST request to: _/api/v1/screenings/{screeningToken}/forensics_
 
-/api/v1/screenings/{screeningToken}/forensics
+Request headers:
 
-Request Headers:
+> Content-Type: multipart/form-data
 
-**Content-Type: multipart/form-data**
+Request data:
 
-Request body:
+> Files: File sent to forensic analysis
 
-**Files: File sent to forensic analysis**
-
-**Tag: String describing the type of document uploaded** (optional)
+> Tag: String describing the type of document uploaded (optional)
 
 ```bash title="Example request"
 curl --location --request POST 'https://screenings-api-test.globalpass.ch/api/v1/screenings/ bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd/forensics' --header 'Authorization: Bearer {your_access_token}' --form 'Files=@"/C:/Image1.jpg"' --form 'Tag="TransferExplanation"'
@@ -36,14 +32,14 @@ After the forensic analysis status changes, you will receive **forensics.change*
 {
     "type": "forensics.change",
     "data": {
-        "ScreeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd",
+        "screeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd",
         "ForensicAnalysisId": "b538fac5-ab02-4af6-aae0-04046eb143cc"
     },
     "secret": "secret"
 }
 ```
 
-To get forensics status, make an HTTP GET request to /api/v1/screenings/{screeningToken}/forensics/{forensicsId}
+To get forensics status, make an HTTP GET request to _/api/v1/screenings/{screeningToken}/forensics/{forensicsId}_
 
 
 ```bash title="Example request"

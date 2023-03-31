@@ -1,8 +1,8 @@
-# Transaction Screening
+# 10.1 Transaction Screening
 
 To initiate a crypto transaction screening, make an HTTP POST request to:
 
-/api/v2/crypto/transactions
+_/api/v2/crypto/transactions_
 
 ```bash title="Example request"
 curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/transactions' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}' -H 'Content-Type: application/json' -d '{"blockchain": "string","ticker": "string","hash": "string","direction": "string","outputAddress": "string","outputIndices": [0]"logIndex": 0,"externalId": "string"}
@@ -12,23 +12,23 @@ Note that crypto transaction request parameters depend on the asset of the scree
 
 | Property | Description |
 | -------- | ----------- |
-| blockchain | full name of the blockchain of the screened transaction. _Required value_. |
-| ticker | ticker of the asset of the screened transaction. _Required value_. |
-| hash | transaction hash. _Required value_. |
-| direction | specification whether you will be running a source or destination of funds analysis. _Required value_: 
+| blockchain | Full name of the blockchain of the screened transaction. _Required value_. |
+| ticker | Ticker of the asset of the screened transaction. _Required value_. |
+| hash | Transaction hash. _Required value_. |
+| direction | Specification whether you will be running a source or destination of funds analysis. _Required value_: 
 
 > Possible **direction** values:
 - source_of_funds – gets details of the entities that have contributed funds to the transaction's source address and calculates a risk score based on this exposure
-- destination_of_funds – gets details of the entities that funds have gone to from this transaction's destination address and calculate a risk score based on this exposure |
+- destination_of_funds – gets details of the entities that funds have gone to from this transaction's destination address and calculate a risk score based on this exposure
 
 Additional properties may be required in some cases:
 
 | Property | Description |
 | -------- | ----------- |
-| outputAddress | address of the output wallet of the transaction. _Required value only for Bitcoin and Tron blockchain transactions_, as these assets can have multiple outputs. For example, if you are analyzing a deposit into your service then you might want to specify the output address that belongs to your service. Or for a withdrawal, it might be the output address that your customer wants to send funds to. |
-| outputIndices | zero-indexed output indices, an alternative method of specifying the relevant output of the transaction if output address is unknown. When specifying the output(s) by indices, if the provided indices reference multiple distinct addresses, the API will respond with an error. |
+| outputAddress | Address of the output wallet of the transaction. _Required value only for Bitcoin and Tron blockchain transactions_, as these assets can have multiple outputs. For example, if you are analyzing a deposit into your service then you might want to specify the output address that belongs to your service. Or for a withdrawal, it might be the output address that your customer wants to send funds to. |
+| outputIndices | Zero-indexed output indices, an alternative method of specifying the relevant output of the transaction if output address is unknown. When specifying the output(s) by indices, if the provided indices reference multiple distinct addresses, the API will respond with an error. |
 | logIndex | [log_index](https://web3js.readthedocs.io/en/v1.2.9/web3-eth-contract.html?highlight=logindex#id37) is a necessary parameter for Ethereum blockchain transactions (except from Ether) that contain multiple ERC20 token transfers. If a screened transaction contains transfers of than more than one token, the API will respond with an error requesting to specify the log\_index value. _Optional value for all Ethereum blockchain assets except from Ether_. |
-| externalId | unique identifier of the user in your system. _Required value_. |
+| externalId | Unique identifier of the user in your system. _Required value_. |
 
 ```js title="Example Bitcoin Destination of Funds request body"
 {
@@ -87,14 +87,14 @@ Where:
 
 | Property | Description |
 | -------- | ----------- |
-| id | unique identifier of the specific screening of the transaction. If rescreening of the same transaction will be performed, the ID value will refer to the exact screening of the same transaction. |
-| screeningToken | unique identifier of the screened transaction in the GlobalPass system |
-| created | timestamp of when the specific screening of the transaction was performed |
-| riskScore | transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
+| id | Unique identifier of the specific screening of the transaction. If rescreening of the same transaction will be performed, the ID value will refer to the exact screening of the same transaction. |
+| screeningToken | Unique identifier of the screened transaction in the GlobalPass system |
+| created | Timestamp of when the specific screening of the transaction was performed |
+| riskScore | Transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
 
 To get status of any given transaction screening, make an HTTP GET request to
 
-/api/v2/crypto/transactions/{screeningToken}
+_/api/v2/crypto/transactions/{screeningToken}_
 
 ```bash title="Example request"
 curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transactions/b101d8d6-de0f-45e9-9509-0d43258a416f' \-H 'accept: text/plain' \-H 'Authorization: Bearer {your_access_token}'

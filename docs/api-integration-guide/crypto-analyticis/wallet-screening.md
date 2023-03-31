@@ -1,8 +1,8 @@
-# Wallet Screening
+# 10.2 Wallet Screening
 
 To initiate a crypto transaction screening, make an HTTP POST request to
 
-/api/v2/crypto/wallets
+_/api/v2/crypto/wallets_
 
 ```bash title="Example request"
 curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/wallets' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}' -H 'Content-Type: application/json' -d '{"blockchain": "bitcoin","ticker": "BTC","address": "1LoP929sXe5cGEuLw1tKRwDvSFVRJkqDW7","externalId": "User029"}
@@ -12,10 +12,10 @@ Where:
 
 | Property | Description |
 | -------- | ----------- |
-| blockchain | full name of the blockchain of the screened wallet. _Required value_. |
-| yicker | ticker of the screened asset of the wallet. _Required value_. |
-| address | address of the screened wallet. _Required value_. |
-| externalId | unique identifier of the user in your system. _Required value_. |
+| blockchain | Full name of the blockchain of the screened wallet. _Required value_. |
+| yicker | Ticker of the screened asset of the wallet. _Required value_. |
+| address | Address of the screened wallet. _Required value_. |
+| externalId | Unique identifier of the user in your system. _Required value_. |
 
 Example response:
 
@@ -32,14 +32,14 @@ Where:
 
 | Property | Description |
 | -------- | ----------- |
-| id | unique identifier of the specific screening of the wallet. If rescreening of the same wallet will be performed, the ID value will refer to the exact screening of the same wallet. |
-| screeningToken | unique identifier of the screened wallet in the GlobalPass system |
-| created | timestamp of when the specific screening of the wallet was performed |
-| riskScore | wallet's risk value based on its exposure, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
+| id | Unique identifier of the specific screening of the wallet. If rescreening of the same wallet will be performed, the ID value will refer to the exact screening of the same wallet. |
+| screeningToken | Unique identifier of the screened wallet in the GlobalPass system |
+| created | Timestamp of when the specific screening of the wallet was performed |
+| riskScore | Wallet's risk value based on its exposure, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
 
 To get status of any given wallet screening, make an HTTP GET request to
 
-/api/v2/crypto/wallets/{screeningToken}
+_/api/v2/crypto/wallets/{screeningToken}_
 
 ```bash title="Example request"
 curl -X 'GET' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/wallets/b101d8d6-de0f-45e9-9509-0d43258a416f' -H 'accept: text/plain' \-H 'Authorization: Bearer {your_access_token}'
