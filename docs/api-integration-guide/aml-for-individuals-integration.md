@@ -1,0 +1,135 @@
+---
+sidebar_position: 6
+---
+
+# AML for Individuals integration
+
+To initiate an AML screening of an individual, make an HTTP POST request to:
+
+/api/v2/individual
+
+Request Headers:
+
+**Content-Type: application/json**
+
+Request body:
+
+**GivenNames:** First Name(s) of the individual, or full name (if surname not applicable/unknown).
+**Surname:** Surname or Last Name (optional).
+**Gender:** Possible values: Male and Female (optional).
+**DateOfBirth:** Date of Birth (optional).
+**Nationality:** ISO 3166-1 alpha-3 compliant country code (optional).
+**ExternalId:** External identifier (your unique identifier of the person/screening, not used in AML results) (optional).
+
+```bash title="Example request"
+curl -X 'POST' \'https://screenings-api-test.globalpass.ch/api/v2/individual' \-H 'accept:text/plain' \-H'Authorization: Bearer {your_access_token}'\-H 'Content-Type: application/json' \-d '{"givenNames": "Donald John","surname": "Trump","gender": "Male","nationality": "USA","dateOfBirth": "1946-06-14"}'
+```
+
+```js title="Example response"
+{
+    "token": "f4564d3d-69de-4093-971d-796699c0e8c5"
+}
+```
+
+You will receive a webhook with type **screening.aml.completed** indicating that the scan has been completed.
+
+During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to the webhook callback URL you provide to the GlobalPass support team. When receiving these requests, ensure that the body value of "secret" matches the webhook secret we will provide.
+
+```js title="Example webhook"
+{
+    "type": "screening.aml.completed",
+    "data": {
+        "ScreeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
+    },
+    "secret": "secret"
+}
+```
+
+To get screenings status, make an HTTP GET request to:
+
+/api/v2/screenings/{screeningToken}/status
+
+```bash title="Example request"
+curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/screenings/f4564d3d-69de-4093-971d-796699c0e8c5/status' --header 'Authorization: Bearer {your_access_token}'
+```
+
+
+```js title="Example response #1"
+{
+    "status": "Accepted"
+}
+```
+
+```js title="Example response #2"
+{
+    "status": "Rejected"
+}
+```
+
+> Possible **status** values:
+- Accepted – screening is completed, AML matches over your set-up threshold **are not** found.
+- Rejected – screening is completed, AML matches over your set-up threshold **are** found.
+
+To retrieve **AML scan results** from a completed screening, make an HTTP GET request to:
+
+/api/v2/screenings/{screeningToken}/aml/matches
+
+```bash title="Example request"
+curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/screenings/9519c730-5d6e-4c23-b89a-8c4d06899e7f/aml/matches' --header 'Authorization: Bearer {your_access_token}'
+```
+
+```js title="Example response"
+{
+    "screeningToken": "9519c730-5d6e-4c23-b89a-8c4d06899e7f",
+    "created": "2022-12-28T11:04:25.0931836Z",
+    "matches": [
+        {
+            "name": "Ali, Muhamad",
+            "matchScore": 99.99999,
+            "category": "Adverse Media",
+            "subCategory": "Burglary"
+        },
+        {
+            "name": "Ali, Mohamed",
+            "matchScore": 96.666664,
+            "category": "Enforcement",
+            "subCategory": "Corruption"
+        },
+        {
+            "name": "Ali, Mohammad",
+            "matchScore": 91.11111,
+            "level": "National",
+            "category": "PEP",
+            "subCategory": "Former PEP"
+        },
+        {
+            "name": "Ali, Mohammad",
+            "matchScore": 91.11111,
+            "level": "State",
+            "category": "PEP",
+            "subCategory": "Family Member"
+        },
+        {
+            "name": "Ali Mohammed",
+            "matchScore": 74.44444,
+            "category": "Sanction List"
+        }
+    ]
+}
+```
+
+Where:
+
+| Property | Description |
+| -------- | ----------- |
+| name | name of the detected possible AML match |
+| matchScore | AML match strength. Values up to 99.9999 (highest possible strength) |
+| category | AML match category. Possible categories: "Sanction List", "PEP", "Adverse Media", "Enforcement". One match will have one category. |
+| subCategory | available only for PEP, Adverse Media and Enforcement categories. Specifies subcategory of the main category (e.g., PEP – Family Member, Adverse Media – Burglary, etc.). |
+| level | available only for PEP category. Specifies PEP level – "International", "National", "State", or "Local". |
+
+To access any given individual AML screening, you can navigate to:
+
+[https://portal-test.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D)- development
+
+[https://portal.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D)– production
