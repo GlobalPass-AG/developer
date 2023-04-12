@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/nightOwlLight');
 const config = {
   title: 'Developer GlobalPass',
   // tagline: 'GlobalPass developers are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://cdn.globalpass.ch/assets/globalpass.ico',
 
   // Set the production url of your site here
   url: 'https://developer.globalpass.ch',
@@ -33,12 +33,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: false,
-          exclude: [
-            'tutorial-basics',
-            'tutorial-extras'
-          ],
           // showLastUpdateTime: true,
         },
         blog: false,
@@ -53,9 +50,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      // image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Developer',
+        // title: '',
         logo: {
           alt: 'GlobalPass Developer Logo',
           src: 'img/logo-gp.svg',
@@ -68,22 +65,35 @@ const config = {
             label: 'API Integration Guide'
           },
           {
-            type: 'dropdown',
-            label: 'SDK',
+            type: 'docSidebar',
+            sidebarId: 'androidSdkSidebar',
             position: 'left',
-            items: [
-              {
-                type: 'docSidebar',
-                sidebarId: 'androidSdkSidebar',
-                label: 'Android'
-              },
-              {
-                type: 'docSidebar',
-                sidebarId: 'iosSdkSidebar',
-                label: 'iOS'
-              },
-            ]
+            label: 'Android SDK'
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'iosSdkSidebar',
+            position: 'left',
+            label: 'iOS SDK'
+          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'androidSdkSidebar',
+          //   label: 'SDK',
+          //   position: 'left',
+          //   items: [
+          //     {
+          //       type: 'docSidebar',
+          //       sidebarId: 'androidSdkSidebar',
+          //       label: 'Android'
+          //     },
+          //     {
+          //       type: 'docSidebar',
+          //       sidebarId: 'iosSdkSidebar',
+          //       label: 'iOS'
+          //     },
+          //   ]
+          // },
           // {
           //   type: 'docSidebar',
           //   sidebarId: 'apiSidebar',
@@ -145,6 +155,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['kotlin','swift','gradle','dart','groovy','java','ruby'],
       },
       colorMode: {
         disableSwitch: true,

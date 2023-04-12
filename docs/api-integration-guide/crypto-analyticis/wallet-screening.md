@@ -1,6 +1,9 @@
-# 10.2 Wallet Screening
+---
+sidebar_position: 2
+---
+# Wallet Screening
 
-To initiate a crypto transaction screening, make an HTTP POST request to
+To initiate a crypto wallet screening, make an HTTP POST request to
 
 _/api/v2/crypto/wallets_
 

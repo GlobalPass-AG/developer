@@ -1,4 +1,7 @@
-# 10.1 Transaction Screening
+---
+sidebar_position: 1
+---
+# Transaction Screening
 
 To initiate a crypto transaction screening, make an HTTP POST request to:
 

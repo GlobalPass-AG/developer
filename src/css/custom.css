@@ -29,4 +29,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-
+.theme-doc-sidebar-item-category-level-1 .menu__list-item a {
+  font-weight: normal;
+}
