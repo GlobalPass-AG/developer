@@ -6,7 +6,7 @@ hide_table_of_contents: true
 ## 1. Manual installation step-by-step
 
 :::tip
-You can follow the manual installation steps below or use CocoaPods to install dependences. For the latter, see [CocoaPods installation step-by-step](#cocoapods-installation-step-by-step).
+You can follow the manual installation steps below or use CocoaPods to install dependences. For the latter, see [CocoaPods installation step-by-step](#2-cocoapods-installation-step-by-step).
 :::
 
 ### a. Clone the repository
