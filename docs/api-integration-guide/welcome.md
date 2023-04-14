@@ -2,31 +2,35 @@
 sidebar_position: 1
 slug: /
 ---
-# Authentication
+# Welcome
 
-To access our portal, go to:
+Welcome to GlobalPass documentation. Our **KYC**, **AML** and **Crypto Compliance** solutions are designed to provide seamless integration with your system, enabling automation of your compliance processes in a quick and efficient manner.
 
-[https://portal-test.globalpass.ch](https://portal-test.globalpass.ch/) (development)
+In this documentation, you will find detailed information on how to integrate GlobalPass solutions into your system via Web API or Mobile SDK integration.
 
-[https://portal.globalpass.ch](https://portal.globalpass.ch/) (production)
+## Getting Started
 
-:::tip
-For access rights to GlobalPass portal, **please contact GlobalPass support**.
-:::
+Before you get started, you will need an **API key**,  **API secret** and **access rights to GlobalPass portal**, which can be received by contacting GlobalPass support team at support@globalpass.ch.
+
+To log in to **GlobalPass Portal**, navigate to:
+
+* [https://portal-test.globalpass.ch](https://portal-test.globalpass.ch/) (*sandbox*)
+* [https://portal.globalpass.ch](https://portal.globalpass.ch/) (*production*)
+
+## Authentication
 
 The Screenings API requires an access token. To get it, you must first make an HTTP POST request to one of our OAuth 2.0 endpoints:
 
-[https://identity-test.globalpass.ch/connect/token](https://identity-test.globalpass.ch/connect/token) (development)
+* [https://identity-test.globalpass.ch/connect/token](https://identity-test.globalpass.ch/connect/token) (*sandbox*)
+* [https://identity.globalpass.ch/connect/token](https://identity.globalpass.ch/connect/token) (*production*)
 
-[https://identity.globalpass.ch/connect/token](https://identity.globalpass.ch/connect/token) (production)
-
-Request headers:
+**Request headers:**
 
 > Authorization: Basic EncodeBase64("your_client_id:your_client_secret")
 
 > Content-Type: application/x-www-form-urlencoded
 
-Request data:
+**Request data:**
 
 > grant_type=client_credentials
 

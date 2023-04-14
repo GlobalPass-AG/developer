@@ -111,6 +111,5 @@ Where:
 
 To access any given business AML screening, you can navigate to:
 
-[https://portal-test.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) – development
-
-[https://portal.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) – production
+* [https://portal-test.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) (*sandbox*)
+* [https://portal.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) (*production*)

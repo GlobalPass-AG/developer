@@ -5,9 +5,8 @@ sidebar_position: 9
 
 Widget source URLs:
 
-[https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js)(development)
-
-[https://cdn.globalpass.ch/live/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/l;ive/global-pass-screening-widget.latest.js)(production)
+* [https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js) (*sandbox*)
+* [https://cdn.globalpass.ch/live/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/l;ive/global-pass-screening-widget.latest.js) (*production*)
 
 All backend API calls should be executed sending _access\_token_ in requests header received in the [Authentication](#_Authentication)step.
 

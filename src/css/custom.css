@@ -32,3 +32,7 @@
 .theme-doc-sidebar-item-category-level-1 .menu__list-item a {
   font-weight: normal;
 }
+
+.theme-doc-markdown a {
+  color: rgb(72, 118, 214);
+}

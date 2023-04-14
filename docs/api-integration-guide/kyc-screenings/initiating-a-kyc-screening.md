@@ -9,9 +9,8 @@ Swagger docs:
 
 Screening API endpoints:
 
-[https://screenings-api-test.globalpass.ch](https://screenings-api-test.globalpass.ch/) (development)
-
-[https://screenings-api.globalpass.ch](https://screenings-api-test.globalpass.ch/) (production)
+* [https://screenings-api-test.globalpass.ch](https://screenings-api-test.globalpass.ch/) (*sandbox*)
+* [https://screenings-api.globalpass.ch](https://screenings-api-test.globalpass.ch/) (*production*)
 
 To initiate a user screening, first create a screening token by making an HTTP POST request to:
 
@@ -28,9 +27,8 @@ After getting the token, provide it to our javascript widget that you have paste
 
 Widget source URLs:
 
-[https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js) (development)
-
-[https://cdn.globalpass.ch/live/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/l;ive/global-pass-screening-widget.latest.js)(production)
+* [https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/stage/global-pass-screening-widget.latest.js) (*sandbox*)
+* [https://cdn.globalpass.ch/live/global-pass-screening-widget.latest.js](https://cdn.globalpass.ch/l;ive/global-pass-screening-widget.latest.js) (*production*)
 
 Your page should look something like this:
 

@@ -107,6 +107,5 @@ Where:
 
 To access any given individual AML screening, you can navigate to:
 
-[https://portal-test.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D)- development
-
-[https://portal.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D)– production
+* [https://portal-test.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D) (*sandbox*)
+* [https://portal.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D) (*production*)

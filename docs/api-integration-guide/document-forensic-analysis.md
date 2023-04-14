@@ -86,6 +86,5 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v1/
 
 To access any given forensic analysis report, you can navigate to:
 
-[https://portal-test.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) - development
-
-[https://portal.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) - production
+* [https://portal-test.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (*sandbox*)
+* [https://portal.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (*production*)

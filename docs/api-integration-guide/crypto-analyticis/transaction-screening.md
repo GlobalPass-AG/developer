@@ -114,12 +114,10 @@ curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transact
 
 To access any given latest transaction screening report, you can navigate to:
 
-[https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D)– development
-
-[https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) – production
+* [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (*sandbox*)
+* [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (*production*)
 
 To access a specific historical transaction screening report, you can navigate to:
 
-[https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D)– development
-
-[https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D)– production
+* [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (*sandbox*)
+* [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (*production*)
