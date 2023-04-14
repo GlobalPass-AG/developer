@@ -13,21 +13,13 @@ You can follow the manual installation steps below or use CocoaPods to install d
 
 [https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
 
-The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **React Native** project's `ios` folder. See the example below:
-
-![content/Untitled.png](content/Untitled.png)
+> The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **React Native** project's `ios` folder. See the example below:
 
 ### b. Open React Native project's iOS .xcworkspace file
 
-![content/Untitled%205.png](content/Untitled%205.png)
-
-### c. Open context menu on Frameworks folder and select `Add files to …`
-
-![content/Untitled%207.png](content/Untitled%207.png)
+### c. Select context menu on `Frameworks` folder and select `Add files to …`
 
 ### d. Choose the `GlobalPass.xcframework` folder and click `Add`
-
-![content/Untitled%208.png](content/Untitled%208.png)
 
 ### e. You can now build the project
 
@@ -109,7 +101,7 @@ Please change the descriptions under `NFCReaderUsageDescription`, `NSCameraUsage
 
 There is a type named `GPFacade`
 
-![content/Untitled%2014.png](content/Untitled%2014.png)
+![content/gpfacade.png](content/gpfacade.png)
 
 This type has methods that provide flows and environments to interact with GlobalPass:
 
@@ -117,10 +109,6 @@ This type has methods that provide flows and environments to interact with Globa
 - `buildKYCProd` - takes a screening token and runs screening flow in prod environment
 - `buildIBDev` - takes an instant biometrics ID and runs instant biometrics flow in dev environment
 - `buildIBProd` - takes an instant biometrics ID and runs instant biometrics flow in prod environment
-
-![Untitled](content/Untitled%2015.png)
-
-![Untitled](content/Untitled%2016.png)
 
 ### iOS side
 

@@ -13,9 +13,7 @@ You can follow the manual installation steps below or use CocoaPods to install d
 
 [https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
 
-The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **Flutter** project's `ios` folder. See the example below:
-
-![enter image description here](https://i.ibb.co/phgwv1Y/2023-02-22-18-14-33.png)
+> The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **Flutter** project's `ios` folder.
 
 ### b. Open Terminal on Flutter project and run the following command:
 
@@ -42,9 +40,7 @@ Make sure that you have Podfile file on your `ios` folder.
 
 ### e. Open Flutter project's iOS `.xcworkspace` file
 
-![enter image description here](https://i.ibb.co/6w32gCp/2023-02-22-18-31-52.png)
-
-### f. Open context menu on `Frameworks` folder and select `Add files to …`
+### f. Select context menu on `Frameworks` folder and select `Add files to …`
 
 ### g. Choose the `GlobalPass.xcframework` folder and click `Add`
 
