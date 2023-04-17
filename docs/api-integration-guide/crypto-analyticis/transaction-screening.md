@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 # Transaction Screening
 
 To initiate a crypto transaction screening, make an HTTP POST request to:
@@ -13,25 +14,26 @@ curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/transact
 
 Note that crypto transaction request parameters depend on the asset of the screened transaction, which is explained below.
 
-| Property | Description |
-| -------- | ----------- |
-| blockchain | Full name of the blockchain of the screened transaction. _Required value_. |
-| ticker | Ticker of the asset of the screened transaction. _Required value_. |
-| hash | Transaction hash. _Required value_. |
-| direction | Specification whether you will be running a source or destination of funds analysis. _Required value_: 
+| Property   | Description                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
+| blockchain | Full name of the blockchain of the screened transaction. _Required value_.                             |
+| ticker     | Ticker of the asset of the screened transaction. _Required value_.                                     |
+| hash       | Transaction hash. _Required value_.                                                                    |
+| direction  | Specification whether you will be running a source or destination of funds analysis. _Required value_. |
 
 > Possible **direction** values:
+
 - source_of_funds – gets details of the entities that have contributed funds to the transaction's source address and calculates a risk score based on this exposure
 - destination_of_funds – gets details of the entities that funds have gone to from this transaction's destination address and calculate a risk score based on this exposure
 
 Additional properties may be required in some cases:
 
-| Property | Description |
-| -------- | ----------- |
-| outputAddress | Address of the output wallet of the transaction. _Required value only for Bitcoin and Tron blockchain transactions_, as these assets can have multiple outputs. For example, if you are analyzing a deposit into your service then you might want to specify the output address that belongs to your service. Or for a withdrawal, it might be the output address that your customer wants to send funds to. |
-| outputIndices | Zero-indexed output indices, an alternative method of specifying the relevant output of the transaction if output address is unknown. When specifying the output(s) by indices, if the provided indices reference multiple distinct addresses, the API will respond with an error. |
-| logIndex | [log_index](https://web3js.readthedocs.io/en/v1.2.9/web3-eth-contract.html?highlight=logindex#id37) is a necessary parameter for Ethereum blockchain transactions (except from Ether) that contain multiple ERC20 token transfers. If a screened transaction contains transfers of than more than one token, the API will respond with an error requesting to specify the log\_index value. _Optional value for all Ethereum blockchain assets except from Ether_. |
-| externalId | Unique identifier of the user in your system. _Required value_. |
+| Property      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| outputAddress | Address of the output wallet of the transaction. _Required value only for Bitcoin and Tron blockchain transactions_, as these assets can have multiple outputs. For example, if you are analyzing a deposit into your service then you might want to specify the output address that belongs to your service. Or for a withdrawal, it might be the output address that your customer wants to send funds to.                                                       |
+| outputIndices | Zero-indexed output indices, an alternative method of specifying the relevant output of the transaction if output address is unknown. When specifying the output(s) by indices, if the provided indices reference multiple distinct addresses, the API will respond with an error.                                                                                                                                                                                 |
+| logIndex      | [log_index](https://web3js.readthedocs.io/en/v1.2.9/web3-eth-contract.html?highlight=logindex#id37) is a necessary parameter for Ethereum blockchain transactions (except from Ether) that contain multiple ERC20 token transfers. If a screened transaction contains transfers of than more than one token, the API will respond with an error requesting to specify the log*index value. \_Optional value for all Ethereum blockchain assets except from Ether*. |
+| externalId    | Unique identifier of the user in your system. _Required value_.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ```js title="Example Bitcoin Destination of Funds request body"
 {
@@ -88,12 +90,12 @@ Responses will be unified in all request types.
 
 Where:
 
-| Property | Description |
-| -------- | ----------- |
-| id | Unique identifier of the specific screening of the transaction. If rescreening of the same transaction will be performed, the ID value will refer to the exact screening of the same transaction. |
-| screeningToken | Unique identifier of the screened transaction in the GlobalPass system |
-| created | Timestamp of when the specific screening of the transaction was performed |
-| riskScore | Transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
+| Property       | Description                                                                                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id             | Unique identifier of the specific screening of the transaction. If rescreening of the same transaction will be performed, the ID value will refer to the exact screening of the same transaction. |
+| screeningToken | Unique identifier of the screened transaction in the GlobalPass system                                                                                                                            |
+| created        | Timestamp of when the specific screening of the transaction was performed                                                                                                                         |
+| riskScore      | Transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level)                                                    |
 
 To get status of any given transaction screening, make an HTTP GET request to
 
@@ -114,10 +116,10 @@ curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transact
 
 To access any given latest transaction screening report, you can navigate to:
 
-* [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (*sandbox*)
-* [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (*production*)
+- [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (_sandbox_)
+- [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D) (_production_)
 
 To access a specific historical transaction screening report, you can navigate to:
 
-* [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (*sandbox*)
-* [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (*production*)
+- [https://portal-test.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (_sandbox_)
+- [https://portal.globalpass.ch/crypto-screenings/transaction/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/transaction/%7BscreeningToken%7D/%7Bid%7D) (_production_)

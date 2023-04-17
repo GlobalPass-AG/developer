@@ -1,6 +1,7 @@
 ﻿---
 hide_table_of_contents: true
 ---
+
 # Flutter
 
 :::note
@@ -10,12 +11,12 @@ Latest GlobalPass iOS SDK version **1.6**
 ## 1. Manual installation step-by-step
 
 :::tip
-You can follow the manual installation steps below or use CocoaPods to install dependences. For the latter, see [CocoaPods installation step-by-step](#2-cocoapods-installation-step-by-step).
+You can follow the manual installation steps below or use CocoaPods to install dependencies. For the latter, see [CocoaPods installation step-by-step](#2-cocoapods-installation-step-by-step).
 :::
 
 ### a. Clone the repository
 
-[https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
+[https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/\_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
 
 > The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **Flutter** project's `ios` folder.
 

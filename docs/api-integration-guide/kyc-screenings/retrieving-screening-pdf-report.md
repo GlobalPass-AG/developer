@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 ---
+
 # Retrieving Screening PDF Report
 
 To retrieve a latest PDF report of the screening, make an HTTP GET request to
@@ -24,11 +25,11 @@ curl --location --request POST 'https://screenings-api-test.globalpass.ch/api/v2
 ```
 
 API returns the report ID of the newly requested PDF report.
- Operation is asynchronous, response code is 202 (Accepted):
+Operation is asynchronous, response code is 202 (Accepted):
 
 ```js title="Example response"
 {
-    "reportId": "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516"
+  "reportId": "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516"
 }
 ```
 
@@ -46,15 +47,15 @@ Response returns report IDs of all available PDF reports for retrieving, with ti
 
 ```js title="Example response"
 [
-    {
-        "reportCreatedAt": "2022-12-20T09:22:27.188Z",
-        "reportId": "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516"
-    },
-    {
-        "reportCreatedAt": "2022-12-20T09:06:57.653Z",
-        "reportId": "5856cc18-59b5-4716-972d-5eeeefa0bfd0"
-    }
-]
+  {
+    reportCreatedAt: "2022-12-20T09:22:27.188Z",
+    reportId: "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516",
+  },
+  {
+    reportCreatedAt: "2022-12-20T09:06:57.653Z",
+    reportId: "5856cc18-59b5-4716-972d-5eeeefa0bfd0",
+  },
+];
 ```
 
 To retrieve a specific historical PDF report, make an HTTP GET request to

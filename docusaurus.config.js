@@ -1,46 +1,46 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight');
-const darkCodeTheme = require('prism-react-renderer/themes/nightOwlLight');
+const lightCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
+const darkCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Developer GlobalPass',
+  title: "Developer GlobalPass",
   // tagline: 'GlobalPass developers are cool',
-  favicon: 'https://cdn.globalpass.ch/assets/globalpass.ico',
+  favicon: "https://cdn.globalpass.ch/assets/globalpass.ico",
 
   // Set the production url of your site here
-  url: 'https://developer.globalpass.ch',
+  url: "https://developer.globalpass.ch",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: false,
           // showLastUpdateTime: true,
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -54,27 +54,27 @@ const config = {
       navbar: {
         // title: '',
         logo: {
-          alt: 'GlobalPass Developer Logo',
-          src: 'img/logo-gp.svg',
+          alt: "GlobalPass Developer Logo",
+          src: "img/logo-gp.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'apiIntegrationGuideSidebar',
-            position: 'left',
-            label: 'API Integration Guide'
+            type: "docSidebar",
+            sidebarId: "apiIntegrationGuideSidebar",
+            position: "left",
+            label: "API Integration Guide",
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'androidSdkSidebar',
-            position: 'left',
-            label: 'Android SDK'
+            type: "docSidebar",
+            sidebarId: "androidSdkSidebar",
+            position: "left",
+            label: "Android SDK",
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'iosSdkSidebar',
-            position: 'left',
-            label: 'iOS SDK'
+            type: "docSidebar",
+            sidebarId: "iosSdkSidebar",
+            position: "left",
+            label: "iOS SDK",
           },
           // {
           //   type: 'docSidebar',
@@ -108,7 +108,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           // {
           //   title: 'Docs',
@@ -150,18 +150,26 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} GlobalPass.`
+        copyright: `Copyright © ${new Date().getFullYear()} GlobalPass.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['kotlin','swift','gradle','dart','groovy','java','ruby'],
+        additionalLanguages: [
+          "kotlin",
+          "swift",
+          "gradle",
+          "dart",
+          "groovy",
+          "java",
+          "ruby",
+        ],
       },
       colorMode: {
         disableSwitch: true,
-        defaultMode: 'light'
-      }
-    })
+        defaultMode: "light",
+      },
+    }),
 };
 
 module.exports = config;

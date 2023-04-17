@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6.2
 ---
+
 # Retrieving Business AML PDF Report
 
 To retrieve a latest PDF report of the screening, make an HTTP GET request to
@@ -45,15 +46,15 @@ Response returns report IDs of all available PDF reports for retrieving, with ti
 
 ```js title="Example response"
 [
-    {
-        "reportCreatedAt": "2022-12-20T09:22:27.188Z",
-        "reportId": "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516"
-    },
-    {
-        "reportCreatedAt": "2022-12-20T09:06:57.653Z",
-        "reportId": "5856cc18-59b5-4716-972d-5eeeefa0bfd0"
-    }
-]
+  {
+    reportCreatedAt: "2022-12-20T09:22:27.188Z",
+    reportId: "30f61d2d-f0f8-4f3b-92f5-4ba4e3c05516",
+  },
+  {
+    reportCreatedAt: "2022-12-20T09:06:57.653Z",
+    reportId: "5856cc18-59b5-4716-972d-5eeeefa0bfd0",
+  },
+];
 ```
 
 To retrieve a specific historical PDF report, make an HTTP GET request to

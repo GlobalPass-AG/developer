@@ -1,24 +1,20 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
   link: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'API Integration Guide',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Documentation on how to integrate GlobalPass.
-      </>
-    ),
-    link: '/docs/api-integration-guide/authentication',
+    title: "API Integration Guide",
+    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
+    description: <>Documentation on how to integrate GlobalPass.</>,
+    link: "/docs/api-integration-guide/authentication",
   },
   // {
   //   title: 'Android',
@@ -42,14 +38,16 @@ const FeatureList: FeatureItem[] = [
   // },
 ];
 
-function Feature({title, Svg, description, link}: FeatureItem) {
+function Feature({ title, Svg, description, link }: FeatureItem) {
   return (
-    <div className={clsx('col col--12')}>
+    <div className={clsx("col col--12")}>
       {/* <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div> */}
       <div className="text--center padding-horiz--md">
-        <h3><a href={link}>{title}</a></h3>
+        <h3>
+          <a href={link}>{title}</a>
+        </h3>
         <p>{description}</p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 ---
 hide_table_of_contents: true
 ---
+
 # Native
 
 :::note
@@ -9,7 +10,7 @@ Latest GlobalPass Android SDK version **1.2.5**
 
 ## 1. Connect GlobalPass SDK
 
-### a. Add this code to the Project level *build.gradle* file under `allprojects -> repositories` section:
+### a. Add this code to the Project level _build.gradle_ file under `allprojects -> repositories` section:
 
 ```gradle title="build.gradle"
 /* GlobalPass SDK Maven Repository */
@@ -32,18 +33,19 @@ maven {
 To get a <token\> value used above, please contact **GlobalPass** support.
 :::
 
-### b. Add this code to the App level *build.gradle* file under `dependencies`:
+### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
 implementation 'ch.globalpass.sdk:release:1.2.5'
 ```
 
 :::tip
-Sometimes dependencies cannot be loaded in the project. In this case, add the following plugin in the App level *build.gradle* file under `plugins` section.
+Sometimes dependencies cannot be loaded in the project. In this case, add the following plugin in the App level _build.gradle_ file under `plugins` section.
 
 ```gradle title="build.gradle"
 id "net.linguica.maven-settings" version "0.5"
 ```
+
 :::
 
 ### c. Sync gradle
@@ -56,6 +58,7 @@ If you use **ProGuard** in your project to avoid crashes and bugs you should use
 -keep class ch.globalpass.globalpasssdk.api.* { public *;}
 -keep class com.facetec.sdk.*{*;}
 ```
+
 :::
 
 ## 2. KYC
@@ -70,10 +73,10 @@ private val globalPassSdk = GlobalPassSDK.create(this)
 
 `start()` function requires 3 parameters:
 
-| Parameter | Description |
-| --------- | ----------- |
-| token | Screening token to start KYC flow. |
-| activity | Activity to open after screening is completed. |
+| Parameter   | Description                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| token       | Screening token to start KYC flow.                                                            |
+| activity    | Activity to open after screening is completed.                                                |
 | environment | Specify one of the environments: `GlobalPassEnvironment.Prod` or `GlobalPassEnvironment.Dev`. |
 
 ```kotlin
@@ -96,12 +99,12 @@ private val globalPassSdk = GlobalPassSDK.create(this)
 
 There is overloaded `start()` function that requires 4 parameters:
 
-| Parameter | Description |
-| --------- | ----------- |
-| token | Instant Biometrics token to start *Instant Biometrics* flow. |
-| activity | Activity to open after screening is completed. |
-| environment | Depending on the implementation use `GlobalPassEnvironment.Prod` or `GlobalPassEnvironment.Dev` API. |
-| flow | This value is set as `GlobalPassFlow.KYC` by default. Set this value to `GlobalPassFlow.InstantBiometrics` for *Instant Biometrics* flow.  |
+| Parameter   | Description                                                                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| token       | Instant Biometrics token to start _Instant Biometrics_ flow.                                                                              |
+| activity    | Activity to open after screening is completed.                                                                                            |
+| environment | Depending on the implementation use `GlobalPassEnvironment.Prod` or `GlobalPassEnvironment.Dev` API.                                      |
+| flow        | This value is set as `GlobalPassFlow.KYC` by default. Set this value to `GlobalPassFlow.InstantBiometrics` for _Instant Biometrics_ flow. |
 
 ```kotlin
 globalPassSdk.start(
@@ -116,11 +119,11 @@ globalPassSdk.start(
 
 There are additional optional parameters in `start()` function:
 
-| Parameter | Description |
-| --------- | ----------- |
-| enableFileLogger | Enable Logger to write SDK logs. |
-| widgetMode | Select matching widget mode if `Split` flow is used. |
-| externalId | Specify customer identification to be set on the screening. |
+| Parameter        | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| enableFileLogger | Enable Logger to write SDK logs.                            |
+| widgetMode       | Select matching widget mode if `Split` flow is used.        |
+| externalId       | Specify customer identification to be set on the screening. |
 
 ```kotlin
 globalPassSdk.start(

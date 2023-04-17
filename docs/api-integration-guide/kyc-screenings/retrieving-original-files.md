@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 ---
+
 # Retrieving Original Files
 
 To retrieve identity and/or proof of address documents originally submitted in the widget, first, make an HTTP GET request to receive unique file identifiers of the files to:
@@ -13,9 +14,9 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
 
 ```js title="Example response"
 {
-    "frontSidePhoto": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "backSidePhoto": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "proofOfAddress": ["3fa85f64-5717-4562-b3fc-2c963f66afa6"]
+  "frontSidePhoto": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "backSidePhoto": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "proofOfAddress": ["3fa85f64-5717-4562-b3fc-2c963f66afa6"]
 }
 ```
 

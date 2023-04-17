@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9.1
 ---
+
 # Webhook Notifications
 
 GlobalPass broadcasts live instant biometrics updates to 3rd party systems through webhooks same way as described in [Retrieving Screening Data](../kyc-screenings/retrieving-screening-data.md).

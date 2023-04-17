@@ -1,6 +1,7 @@
 ---
 hide_table_of_contents: true
 ---
+
 # React Native
 
 :::note
@@ -10,12 +11,12 @@ Latest GlobalPass iOS SDK version **1.6**
 ## 1. Manual installation step-by-step
 
 :::tip
-You can follow the manual installation steps below or use CocoaPods to install dependences. For the latter, see [CocoaPods installation step-by-step](#2-cocoapods-installation-step-by-step).
+You can follow the manual installation steps below or use CocoaPods to install dependencies. For the latter, see [CocoaPods installation step-by-step](#2-cocoapods-installation-step-by-step).
 :::
 
 ### a. Clone the repository
 
-[https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
+[https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/\_git/GlobalPassApp-sdk-ios-binaries](https://isun-ag@dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-binaries)
 
 > The cloned repository contains `GlobalPass.xcframework` folder which should be copied to **React Native** project's `ios` folder. See the example below:
 
@@ -119,31 +120,31 @@ This type has methods that provide flows and environments to interact with Globa
 Methods above are represented in Objective-C by following signatures:
 
 ```objectivec
-RCT_EXPORT_METHOD(buildKYCDev:(NSString *)screeningToken 
+RCT_EXPORT_METHOD(buildKYCDev:(NSString *)screeningToken
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   NSError *error;
-  
+
   VoidClosure callback = [GlobalPassSDK setupScreeningWithEnvironment:GlobalPassEnvironmentDev
                                                        screeningToken:screeningToken
                                                                 error:&error];
-  
+
   if (error != nil) {
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startScreening];
-    
+
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };
 
-RCT_EXPORT_METHOD(buildKYCProd:(NSString *)screeningToken 
+RCT_EXPORT_METHOD(buildKYCProd:(NSString *)screeningToken
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   NSError *error;
@@ -155,12 +156,12 @@ RCT_EXPORT_METHOD(buildKYCProd:(NSString *)screeningToken
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startScreening];
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };
@@ -177,12 +178,12 @@ RCT_EXPORT_METHOD(buildIBDev:(NSString *)instantBiometricsID
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startInstant];
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };
@@ -199,41 +200,41 @@ RCT_EXPORT_METHOD(buildIBProd:(NSString *)instantBiometricsID
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startInstant];
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };
 
-RCT_EXPORT_METHOD(buildSplitKYCDev:(NSString *)screeningToken 
+RCT_EXPORT_METHOD(buildSplitKYCDev:(NSString *)screeningToken
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   NSError *error;
-  
+
   VoidClosure callback = [GlobalPassSDK setupScreeningWithEnvironment:GlobalPassEnvironmentDev
                                                        screeningToken:screeningToken
                                                                 error:&error];
-  
+
   if (error != nil) {
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startSplitScreeningWithType:GPSplitFlowAddress externalID:nil];
-    
+
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };
 
-RCT_EXPORT_METHOD(buildSplitKYCProd:(NSString *)screeningToken 
+RCT_EXPORT_METHOD(buildSplitKYCProd:(NSString *)screeningToken
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   NSError *error;
@@ -245,12 +246,12 @@ RCT_EXPORT_METHOD(buildSplitKYCProd:(NSString *)screeningToken
     reject(@"0", @"GlobalPass", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIViewController *controller = [GlobalPassSDK startSplitScreeningWithType:GPSplitFlowAddress externalID:nil];
     controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
-      
+
     }];
   });
 };

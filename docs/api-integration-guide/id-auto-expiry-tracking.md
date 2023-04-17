@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 ---
+
 # ID Auto-Expiry Tracking
 
 ID Auto-Expiry tracking is an optional feature, and GlobalPass support should be informed to enable the tracking upon integration of the feature; otherwise, screening statuses will not change and the webhooks will not be sent.

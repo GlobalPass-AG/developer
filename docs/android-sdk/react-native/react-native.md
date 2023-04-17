@@ -1,6 +1,7 @@
 ---
 hide_table_of_contents: true
 ---
+
 # React Native
 
 :::note
@@ -9,7 +10,7 @@ Latest GlobalPass Android SDK version **1.2.5**
 
 ## 1. Connect GlobalPass SDK
 
-### a. Add this code to the Project level *build.gradle* file under `allprojects -> repositories` section:
+### a. Add this code to the Project level _build.gradle_ file under `allprojects -> repositories` section:
 
 ```gradle title="build.gradle"
 /* GlobalPass SDK Maven Repository */
@@ -32,7 +33,7 @@ maven {
 To get a <token\> value used above, please contact **GlobalPass** support.
 :::
 
-### b. Add this code to the App level *build.gradle* file under `dependencies`:
+### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
 implementation 'ch.globalpass.sdk:release:1.2.5'
@@ -48,6 +49,7 @@ If you use **ProGuard** in your project to avoid crashes and bugs you should use
 -keep class ch.globalpass.globalpasssdk.api.* { public *;}
 -keep class com.facetec.sdk.*{*;}
 ```
+
 :::
 
 ## 2. Create Native module to communicate with React Native
@@ -186,29 +188,29 @@ Define in App.js your modules :
 
 ## 4. Start KYC flow
 
-You can start KYC process by calling one of the functions. 
+You can start KYC process by calling one of the functions.
 
 ```jsx
-GPFacade.buildKYCDev(screeningToken)
-GPFacade.buildKYCProd(screeningToken)
+GPFacade.buildKYCDev(screeningToken);
+GPFacade.buildKYCProd(screeningToken);
 ```
 
 ## 5. Start Instant Biometrics flow
 
 ```jsx
-GPFacade.buildIBProd(screeningToken)
-GPFacade.buildIBDev(screeningToken)
+GPFacade.buildIBProd(screeningToken);
+GPFacade.buildIBDev(screeningToken);
 ```
 
 ## 6. Additional optional parameters in `start()` function:
 
 There are additional optional parameters in `start()` function:
 
-| Parameter | Description |
-| --------- | ----------- |
-| enableFileLogger | Enable Logger to write SDK logs. |
-| widgetMode | Select matching widget mode if `Split` flow is used. |
-| externalId | Specify customer identification to be set on the screening. |
+| Parameter        | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| enableFileLogger | Enable Logger to write SDK logs.                            |
+| widgetMode       | Select matching widget mode if `Split` flow is used.        |
+| externalId       | Specify customer identification to be set on the screening. |
 
 ```kotlin
 globalPassSdk.start(

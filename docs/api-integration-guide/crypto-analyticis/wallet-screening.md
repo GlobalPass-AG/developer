@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 ---
+
 # Wallet Screening
 
 To initiate a crypto wallet screening, make an HTTP POST request to
@@ -13,12 +14,12 @@ curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/wallets'
 
 Where:
 
-| Property | Description |
-| -------- | ----------- |
+| Property   | Description                                                           |
+| ---------- | --------------------------------------------------------------------- |
 | blockchain | Full name of the blockchain of the screened wallet. _Required value_. |
-| ticker | Ticker of the screened asset of the wallet. _Required value_. |
-| address | Address of the screened wallet. _Required value_. |
-| externalId | Unique identifier of the user in your system. _Required value_. |
+| ticker     | Ticker of the screened asset of the wallet. _Required value_.         |
+| address    | Address of the screened wallet. _Required value_.                     |
+| externalId | Unique identifier of the user in your system. _Required value_.       |
 
 Example response:
 
@@ -33,12 +34,12 @@ Example response:
 
 Where:
 
-| Property | Description |
-| -------- | ----------- |
-| id | Unique identifier of the specific screening of the wallet. If rescreening of the same wallet will be performed, the ID value will refer to the exact screening of the same wallet. |
-| screeningToken | Unique identifier of the screened wallet in the GlobalPass system |
-| created | Timestamp of when the specific screening of the wallet was performed |
-| riskScore | Wallet's risk value based on its exposure, between 0 (no risk rules triggered) and 10 (highest possible risk level) |
+| Property       | Description                                                                                                                                                                        |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id             | Unique identifier of the specific screening of the wallet. If rescreening of the same wallet will be performed, the ID value will refer to the exact screening of the same wallet. |
+| screeningToken | Unique identifier of the screened wallet in the GlobalPass system                                                                                                                  |
+| created        | Timestamp of when the specific screening of the wallet was performed                                                                                                               |
+| riskScore      | Wallet's risk value based on its exposure, between 0 (no risk rules triggered) and 10 (highest possible risk level)                                                                |
 
 To get status of any given wallet screening, make an HTTP GET request to
 
@@ -59,10 +60,10 @@ curl -X 'GET' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/wallets/b
 
 To access any given latest wallet screening report, you can navigate to:
 
-* [https://portal-test.globalpass.ch/crypto-screenings/wallet/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (*sandbox*)
-* [https://portal.globalpass.ch/crypto-screenings/wallet/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (*production*)
+- [https://portal-test.globalpass.ch/crypto-screenings/wallet/{screeningToken}](https://portal-test.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (_sandbox_)
+- [https://portal.globalpass.ch/crypto-screenings/wallet/{screeningToken}](https://portal.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (_production_)
 
 To access a specific historical wallet screening report, you can navigate to:
 
-* [https://portal-test.globalpass.ch/crypto-screenings/wallet/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (*sandbox*)
-* [https://portal.globalpass.ch/crypto-screenings/wallet/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (*production*)
+- [https://portal-test.globalpass.ch/crypto-screenings/wallet/{screeningToken}/{id}](https://portal-test.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (_sandbox_)
+- [https://portal.globalpass.ch/crypto-screenings/wallet/{screeningToken}/{id}](https://portal.globalpass.ch/crypto-screenings/wallet/%7BscreeningToken%7D/%7Bid%7D) (_production_)

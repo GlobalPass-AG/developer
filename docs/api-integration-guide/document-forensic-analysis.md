@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 ---
+
 # Document Forensic Analysis
 
 Begin by getting a screening token as described in [KYC screenings](./kyc-screenings/initiating-a-kyc-screening.md), or use a screening token that belongs to a specific user whose document you are about to send to forensic analysis.
@@ -44,11 +45,9 @@ After the forensic analysis status changes, you will receive **forensics.change*
 
 To get forensics status, make an HTTP GET request to _/api/v1/screenings/{screeningToken}/forensics/{forensicsId}_
 
-
 ```bash title="Example request"
 curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v1/screenings/ bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd/forensics/b538fac5-ab02-4af6-aae0-04046eb143cc' --header 'Authorization: Bearer {your_access_token}'
 ```
-
 
 ```js title="Example response #1"
 {
@@ -79,6 +78,7 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v1/
 ```
 
 > Possible **status** values:
+
 - LikelyGenuine
 - Edited
 - BadData
@@ -86,5 +86,5 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v1/
 
 To access any given forensic analysis report, you can navigate to:
 
-* [https://portal-test.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (*sandbox*)
-* [https://portal.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (*production*)
+- [https://portal-test.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (_sandbox_)
+- [https://portal.globalpass.ch/forensic-analysis/{ForensicAnalysisId}/report](https://portal-test.globalpass.ch/forensic-analysis/%7BForensicAnalysisId%7D/report) (_production_)
