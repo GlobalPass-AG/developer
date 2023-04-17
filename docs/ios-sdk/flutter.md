@@ -3,6 +3,10 @@ hide_table_of_contents: true
 ---
 # Flutter
 
+:::note
+Latest GlobalPass iOS SDK version **1.6**
+:::
+
 ## 1. Manual installation step-by-step
 
 :::tip
@@ -71,7 +75,6 @@ and required dependencies:
 pod 'GlobalPass', '~> 1.6'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
-
 
 ### b. Install Cocoa Pods in Terminal
 

@@ -3,6 +3,10 @@ hide_table_of_contents: true
 ---
 # React Native
 
+:::note
+Latest GlobalPass Android SDK version **1.2.5**
+:::
+
 ## 1. Connect GlobalPass SDK
 
 ### a. Add this code to the Project level *build.gradle* file under `allprojects -> repositories` section:

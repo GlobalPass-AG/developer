@@ -3,6 +3,10 @@ hide_table_of_contents: true
 ---
 # Native
 
+:::note
+Latest GlobalPass iOS SDK version **1.6**
+:::
+
 ## 1. CocoaPods installation step-by-step
 
 ### a. Edit Podfile

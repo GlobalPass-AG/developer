@@ -16,7 +16,7 @@ Where:
 | Property | Description |
 | -------- | ----------- |
 | blockchain | Full name of the blockchain of the screened wallet. _Required value_. |
-| yicker | Ticker of the screened asset of the wallet. _Required value_. |
+| ticker | Ticker of the screened asset of the wallet. _Required value_. |
 | address | Address of the screened wallet. _Required value_. |
 | externalId | Unique identifier of the user in your system. _Required value_. |
 

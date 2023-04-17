@@ -3,6 +3,10 @@ hide_table_of_contents: true
 ---
 # React Native
 
+:::note
+Latest GlobalPass iOS SDK version **1.6**
+:::
+
 ## 1. Manual installation step-by-step
 
 :::tip
