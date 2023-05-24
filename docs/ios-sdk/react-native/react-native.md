@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass iOS SDK version **1.6**
+Latest GlobalPass iOS SDK version **1.7**
 :::
 
 ## 1. Manual installation step-by-step
@@ -50,7 +50,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 and required dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.6'
+pod 'GlobalPass', '~> 1.7'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
 
@@ -104,9 +104,11 @@ Please change the descriptions under `NFCReaderUsageDescription`, `NSCameraUsage
 
 ### React side
 
-There is a type named `GPFacade`
+There is a type named `GPFacade`:
 
-![content/gpfacade.png](content/gpfacade.png)
+```ts
+const { GPFacade } = NativeModules;
+```
 
 This type has methods that provide flows and environments to interact with GlobalPass:
 
@@ -262,3 +264,62 @@ Each of the calls to `GlobalPassSDK` facade that starts with `start` returns an 
 Call to methods that start with `setup` returns an empty closure that should be called at the end of GlobalPass flow in order to clean up all the resources and indicate a finish.
 
 Pass `externalID` to associate custom string with the KYC session.
+
+## Localisation
+
+To specify the required SDK display language, provide the `localeIdentifier` parameter with a string value containing the locale identifier in the function call:
+
+```objectivec
+RCT_EXPORT_METHOD(buildSplitKYCProd:(NSString *)screeningToken
+                   localeIdentifier:(NSString *)locale
+                           resolver:(RCTPromiseResolveBlock)resolve
+                           rejecter:(RCTPromiseRejectBlock)reject) {
+  NSError *error;
+  VoidClosure callback = [GlobalPassSDK setupScreeningWithEnvironment:GlobalPassEnvironmentProd
+                                                       screeningToken:screeningToken
+                                                     localeIdentifier:locale
+                                                                error:&error];
+  if (error != nil) {
+    reject(@"0", @"GlobalPass", error);
+    return;
+  }
+
+  dispatch_async(dispatch_get_main_queue(), ^{
+    UIViewController *controller = [GlobalPassSDK startSplitScreeningWithType:GPSplitFlowAddress externalID:nil];
+    controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:controller animated:YES completion:^{
+
+    }];
+  });
+};
+```
+Available locales:
+- English (`en`)
+- German (`de`)
+- Russian (`ru`)
+- Chinese Simplified (`zh-CN`)
+- Lithuanian (`lt`)
+
+:::note
+If an unsupported locale will be provided, the SDK will fallback to English.
+:::
+
+`localeIdentifier` parameter is defined for static builders and initialisers.\
+Use the method without this parameter to use default English localisation.
+
+
+```objectivec
+// Builders
+
+setupInstantWithEnvironment:instantBiometricsId:error: // Default English
+setupInstantWithEnvironment:instantBiometricsId:localeIdentifier:error: // Provided Localisation
+setupScreeningWithEnvironment:screeningToken:error: // Default English
+setupScreeningWithEnvironment:screeningToken:localeIdentifier:error: // Provided Localisation
+
+// Initialisers
+
+initWithEnvironment:screeningToken:error: // Default English
+initWithEnvironment:screeningToken:localeIdentifier:error: // Provided Localisation
+initWithEnvironment:instantBiometricsId:error: // Default English
+initWithEnvironment:instantBiometricsId:localeIdentifier:error: // Provided Localisation
+```

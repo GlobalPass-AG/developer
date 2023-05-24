@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass iOS SDK version **1.6**
+Latest GlobalPass iOS SDK version **1.7**
 :::
 
 ## 1. CocoaPods installation step-by-step
@@ -30,7 +30,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 and required dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.6'
+pod 'GlobalPass', '~> 1.7'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
 
@@ -172,3 +172,42 @@ GlobalPassSDK.startInstant(completion: { _, _ in callback?() })
 You should present this controller over the `rootViewController`.
 
 And that’s it. After the KYC flow is passed SDK dismisses its view controller and calls the callback you passed earlier.
+
+## 4. Localisation
+
+To specify the required SDK display language, provide the `localeIdentifier` parameter with a string value containing the locale identifier in the function call:
+
+```swift
+do {
+    callback = try GlobalPassSDK.setupScreening(environment: environment, screeningToken: screeningToken, localeIdentifier: "en")
+} catch {
+    print(error)
+}
+DispatchQueue.main.async {
+    guard let viewController = GlobalPassSDK.startSplitScreening(type: .address, externalID: nil) else {
+        return
+    }
+    viewController.modalPresentationStyle = .overFullScreen
+    self.present(viewController, animated: true, completion: nil)
+}
+```
+Available locales:
+- English (`en`)
+- German (`de`)
+- Russian (`ru`)
+- Chinese Simplified (`zh-CN`)
+- Lithuanian (`lt`)
+
+:::note
+If an unsupported locale will be provided, the SDK will fallback to English.
+:::
+
+`localeIdentifier` parameter is defined for static builders.\
+Use the method without this parameter to use the default English localisation.
+
+```swift
+GlobalPassSDK.setupScreening(environment:screeningToken:) // Default English
+GlobalPassSDK.setupScreening(environment:screeningToken:localeIdentifier:) // Provided Localisation
+GlobalPassSDK.setupInstant(environment:instantBiometricsId:) // Default English
+GlobalPassSDK.setupInstant(environment:instantBiometricsId:localeIdentifier:) // Provided Localisation
+```

@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Flutter
 
 :::note
-Latest GlobalPass iOS SDK version **1.6**
+Latest GlobalPass iOS SDK version **1.7**
 :::
 
 ## 1. Manual installation step-by-step
@@ -73,7 +73,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 and required dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.6'
+pod 'GlobalPass', '~> 1.7'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
 
@@ -351,4 +351,37 @@ Now you can call the `startKyc`, `startBiometrics` or `startSplitKyc` methods fo
             break;
         }
         break;
+```
+
+## Localisation
+
+To specify the required SDK display language, provide the `localeIdentifier` parameter with a string value containing the locale identifier in the function call:
+
+```swift
+let callback = try? GlobalPassSDK.setupScreening(environment: isDev ? .dev : .prod, screeningToken: token, localeIdentifier: "en")
+if let globalPassController = GlobalPassSDK.startSplitScreening(type: isAddress ? .address : .identity, externalID: externalID) {
+    globalPassController.modalPresentationStyle = .overFullScreen
+    controller.present(globalPassController, animated: true)
+    result(true)
+}
+```
+Available locales:
+- English (`en`)
+- German (`de`)
+- Russian (`ru`)
+- Chinese Simplified (`zh-CN`)
+- Lithuanian (`lt`)
+
+:::note
+If an unsupported locale will be provided, the SDK will fallback to English.
+:::
+
+`localeIdentifier` parameter is defined for static builders.\
+Use the method without this parameter to use the default English localisation.
+
+```swift
+GlobalPassSDK.setupScreening(environment:screeningToken:) // Default English
+GlobalPassSDK.setupScreening(environment:screeningToken:localeIdentifier:) // Provided Localisation
+GlobalPassSDK.setupInstant(environment:instantBiometricsId:) // Default English
+GlobalPassSDK.setupInstant(environment:instantBiometricsId:localeIdentifier:) // Provided Localisation
 ```

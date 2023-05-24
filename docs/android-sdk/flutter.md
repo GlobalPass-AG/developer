@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Flutter
 
 :::note
-Latest GlobalPass Android SDK version **1.2.5**
+Latest GlobalPass Android SDK version **1.2.7**
 :::
 
 ## 1. Connect GlobalPass SDK
@@ -36,7 +36,7 @@ To get a <token\> value used above, please contact **GlobalPass** support.
 ### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
-implementation 'ch.globalpass.sdk:release:1.2.5'
+implementation 'ch.globalpass.sdk:release:1.2.7'
 ```
 
 ### c. Sync gradle
@@ -230,13 +230,15 @@ There are additional optional parameters in `start()` function:
 | enableFileLogger | Enable Logger to write SDK logs.                            |
 | widgetMode       | Select matching widget mode if `Split` flow is used.        |
 | externalId       | Specify customer identification to be set on the screening. |
+| languageCode     | Specify app translation using available langauage options   |
 
 ```kotlin
 globalPassSdk.start(
     // ...
     enableFileLogger = true,
     widgetMode: WidgetMode = WidgetMode.FULL_MODE,
-    externalId: String? = null
+    externalId: String? = null,
+    languageCode: String = "en"
 )
 ```
 
@@ -264,3 +266,19 @@ enum class WidgetMode(val value: String?) {
 ### `externalID`
 
 You can provide your own customer id to be assigned to the screening flow. By default value is `null`.
+
+
+### `languageCode`
+
+By default, the SDK is displayed in English. To specify a different SDK display language, you can provide the locale code here.
+
+Available locales:
+- English (`en`)
+- German (`de`)
+- Russian (`ru`)
+- Chinese Simplified (`zh-CN`)
+- Lithuanian (`lt`)
+
+:::note
+If an unsupported locale will be provided, the SDK will fallback to English.
+:::
