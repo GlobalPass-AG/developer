@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass iOS SDK version **1.7**
+Latest GlobalPass iOS SDK version: **1.7**
 :::
 
 ## 1. Manual installation step-by-step
@@ -304,8 +304,7 @@ Available locales:
 If an unsupported locale will be provided, the SDK will fallback to English.
 :::
 
-`localeIdentifier` parameter is defined for static builders and initialisers.\
-Use the method without this parameter to use default English localisation.
+`localeIdentifier` parameter is defined for static builders and initialisers. Use the method without this parameter to use default English localisation.
 
 
 ```objectivec

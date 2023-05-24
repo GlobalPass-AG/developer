@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass Android SDK version **1.2.7**
+Latest GlobalPass Android SDK version: **1.2.7**
 :::
 
 ## 1. Connect GlobalPass SDK
@@ -182,7 +182,7 @@ packages.add(new GlobalPassPackage ());
 
 ## 3. Connect your module with React Native:
 
-Define in App.js your modules :
+Define in App.js your modules:
 
 ![NativeModules](content/native-modules.png)
 
@@ -210,8 +210,8 @@ There are additional optional parameters in `start()` function:
 | ---------------- | ----------------------------------------------------------- |
 | enableFileLogger | Enable Logger to write SDK logs.                            |
 | widgetMode       | Select matching widget mode if `Split` flow is used.        |
-| externalId       | Specify customer identification to be set on the screening. |
-| languageCode     | Specify app translation using available langauage options   |
+| externalId       | Specify your internal customer identifier to be set on the screening. |
+| languageCode     | Specify SDK language using available langauage options.   |
 
 ```kotlin
 globalPassSdk.start(
@@ -237,16 +237,15 @@ To use **Split** flow, matching widgetMode must be selected. By default it is se
 
 ```kotlin
 enum class WidgetMode(val value: String?) {
-    SPLIT_REGULAR_MODE(value = "Regular"),
     SPLIT_IDENTITY_MODE(value = "Identity"),
     SPLIT_ADDRESS_MODE(value = "Address"),
     FULL_MODE(value = null)
 }
 ```
 
-### `externalID`
+### `externalId`
 
-You can provide your own customer id to be assigned to the screening flow. By default value is `null`.
+You can provide your own customer ID to be assigned to the screening flow. By default value is `null`.
 
 
 ### `languageCode`
