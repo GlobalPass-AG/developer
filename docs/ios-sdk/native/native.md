@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass iOS SDK version: **1.7**
+Latest GlobalPass iOS SDK version: **1.9**
 :::
 
 ## 1. CocoaPods installation step-by-step
@@ -30,7 +30,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 and required dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.7'
+pod 'GlobalPass', '~> 1.9'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
 
@@ -72,6 +72,7 @@ $ pod install
 <key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 <array>
 <string>A0000002471001</string>
+<string>A0000002472001</string>
 <string>00000000000000</string>
 </array>
 ```
