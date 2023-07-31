@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass Android SDK version: **1.2.8**
+Latest GlobalPass Android SDK version: **1.2.9**
 :::
 
 ## 1. Connect GlobalPass SDK
@@ -36,7 +36,7 @@ To get a <token\> value used above, please contact **GlobalPass** support.
 ### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
-implementation 'ch.globalpass.sdk:release:1.2.8'
+implementation 'ch.globalpass.sdk:release:1.2.9'
 ```
 
 ### c. Sync gradle
