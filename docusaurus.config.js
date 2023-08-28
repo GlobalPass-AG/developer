@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 const config = {
   title: "Developer GlobalPass",
   // tagline: 'GlobalPass developers are cool',
-  favicon: "https://cdn.globalpass.ch/assets/globalpass.ico",
+  favicon: "https://cdn.globalpass.ch/assets/favicon_globalpass.ico",
 
   // Set the production url of your site here
   url: "https://developer.globalpass.ch",
@@ -55,7 +55,7 @@ const config = {
         // title: '',
         logo: {
           alt: "GlobalPass Developer Logo",
-          src: "img/logo-gp.svg",
+          src: "http://cdn.globalpass.ch/assets/logo_gp.svg"
         },
         items: [
           {
