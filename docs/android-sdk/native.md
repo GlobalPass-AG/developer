@@ -52,11 +52,15 @@ id "net.linguica.maven-settings" version "0.5"
 
 :::tip
 
-If you use **ProGuard** in your project to avoid crashes and bugs you should use next rules:
+If you use **ProGuard** in your project you should include these rules:
 
 ```
--keep class ch.globalpass.globalpasssdk.api.* { public *;}
--keep class com.facetec.sdk.*{*;}
+-keep class ch.globalpass.globalpasssdk.domain.model.** { *;}
+
+-dontwarn javax.annotation.Nullable
+-dontwarn com.facetec.sdk.**
+-keep class com.facetec.sdk.**
+{ *; }
 ```
 
 :::
