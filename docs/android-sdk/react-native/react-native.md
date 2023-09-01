@@ -47,6 +47,7 @@ If you use **ProGuard** in your project you should include these rules:
 
 ```
 -keep class ch.globalpass.globalpasssdk.domain.model.** { *;}
+-keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*;}
 
 -dontwarn javax.annotation.Nullable
 -dontwarn com.facetec.sdk.**
