@@ -1,16 +1,14 @@
 ---
-sidebar_position: 5.1
+sidebar_position: 2.1
 ---
 
 # Retrieving Screening Data
 
-You will receive a webhook with type **screening.aml.completed** indicating that the scan has been completed.
-
-During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to the webhook callback URL you provide to the GlobalPass support team. When receiving these requests, ensure that the body value of "secret" matches the webhook secret we will provide.
+You will receive a webhook with type **business.change** whenever the screening status changes.
 
 ```js title="Example webhook"
 {
-    "type": "screening.aml.completed",
+    "type": "business.change",
     "data": {
         "screeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
     },
@@ -18,23 +16,20 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
 }
 ```
 
-To get screenings status, make an HTTP GET request to:
+After receiving this webhook, you can get screening status by making an HTTP GET request to:
 
-_/api/v2/screenings/{screeningToken}/status_
+_api/v2/business/{screeningToken}_
 
 ```bash title="Example request"
-curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/screenings/f4564d3d-69de-4093-971d-796699c0e8c5/status' --header 'Authorization: Bearer {your_access_token}'
+curl -X 'GET' 'https://screenings-api-test.globalpass.ch/api/v2/business/f4564d3d-69de-4093-971d-796699c0e8c5' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token} '
 ```
 
-```js title="Example response #1"
+```js title="Example response"
 {
+    "name": "Apple",
+    "taxRegistrationNumber": "0000320193",
+    "country": "United States",
     "status": "Accepted"
-}
-```
-
-```js title="Example response #2"
-{
-    "status": "Rejected"
 }
 ```
 
@@ -45,10 +40,10 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
 
 To retrieve **AML scan results** from a completed screening, make an HTTP GET request to:
 
-_/api/v2/screenings/{screeningToken}/aml/matches_
+_/api/v2/business/{screeningToken}/aml/matches _
 
 ```bash title="Example request"
-curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/screenings/9519c730-5d6e-4c23-b89a-8c4d06899e7f/aml/matches' --header 'Authorization: Bearer {your_access_token}'
+curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/business/9519c730-5d6e-4c23-b89a-8c4d06899e7f/aml/matches' --header 'Authorization: Bearer {your_access_token}'
 ```
 
 ```js title="Example response"
@@ -57,35 +52,45 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
     "created": "2022-12-28T11:04:25.0931836Z",
     "matches": [
         {
-            "name": "Ali, Muhamad",
+            "name": "Company ABC",
             "matchScore": 99.99999,
-            "category": "Enforcement",
-            "subCategory": "Corruption",
-            "source": {
-                "name": "ZA-South African Police Service",
-                "countryName": "South Africa",
-                "countryCode": "ZAF"
-            }
-        },
-        {
-            "name": "Ali, Mohammad",
-            "matchScore": 91.11111,
-            "level": "National",
-            "category": "PEP",
-            "subCategory": "Former PEP",
+            "category": "SOE",
+            "subCategory": "Govt Owned Corp",
             "source": {
                 "name": "Website",
                 "countryName": "International"
             }
         },
         {
-            "name": "Ali Mohammed",
-            "matchScore": 74.44444,
+            "name": "Company ABC",
+            "matchScore": 96.666664,
+            "category": "Enforcement",
+            "subCategory": "Antitrust Violations",
+            "source": {
+                "name": "BG–Commission for Protection of Competition",
+                "countryName": "Bulgaria",
+                "countryCode": "BGR"
+            }
+        },
+        {
+            "name": "Company ABC",
+            "matchScore": 91.11111,
             "category": "Sanction List",
             "source": {
-                "name": "US-U.S. Office of Foreign Asset Control (OFAC) - SDN List",
-                "countryName": "United States",
-                "countryCode": "USA"
+                "name": "CA-Special Economic Measures against Russia",
+                "countryName": "Canada",
+                "countryCode": "CAN"
+            }
+        },
+        {
+            "name": "Company ABC",
+            "matchScore": 74.44444,
+            "category": "Associated Entity",
+            "subCategory": "Ownership Or Control",
+            "source": {
+                "name": "UK-Her Majesty’s Treasury Financial Sanctions - Sanctions Ownership or Control",
+                "countryName": "United Kingdom",
+                "countryCode": "GBR"
             }
         }
     ]
@@ -106,7 +111,7 @@ Where:
 | source.countryName | Full name of the country that listed the hit (e.g., country that released a sanction list where the hit was count). Will return full country name of the source when the hit was found on an original list. Will return "International" when the hit was found in media sources, or in case of "Consolidated Sanctions List" hit. |
 | source.countryCode | 3-letter code in _ISO 3166-1 Alpha-3_ format of the country that released the hit. Available only when countryName is not "International", but a specific country.                                                                                                                                                                |
 
-To access any given individual AML screening, you can navigate to:
+To access any given business AML screening, you can navigate to:
 
-- [https://portal-test.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D) (_sandbox_)
-- [https://portal.globalpass.ch/aml-screenings/individual/{screeningToken}](https://portal.globalpass.ch/aml-screenings/individual/%7BscreeningToken%7D) (_production_)
+- [https://portal-test.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal-test.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) (_sandbox_)
+- [https://portal.globalpass.ch/aml-screenings/business/{screeningToken}](https://portal.globalpass.ch/aml-screenings/business/%7BscreeningToken%7D) (_production_)

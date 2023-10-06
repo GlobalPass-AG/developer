@@ -1,10 +1,10 @@
 ---
-sidebar_position: 6.2
+sidebar_position: 2.2
 ---
 
 # Retrieving Business AML PDF Report
 
-To retrieve a latest PDF report of the screening, make an HTTP GET request to
+To retrieve a latest PDF report of the screening, make a HTTP GET request to
 
 _/api/v2/business/{screeningToken}/report_
 
@@ -16,7 +16,7 @@ curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/business/a41011
 Response returns the PDF file.
 ```
 
-If latest PDF report does not contain some new data, you can trigger generation of a new PDF report. To do so, make an HTTP POST request to:
+If latest PDF report does not contain some new data, you can trigger generation of a new PDF report. To do so, make a HTTP POST request to:
 
 _/api/v2/business/{screeningToken}/report_
 
@@ -57,7 +57,7 @@ Response returns report IDs of all available PDF reports for retrieving, with ti
 ];
 ```
 
-To retrieve a specific historical PDF report, make an HTTP GET request to
+To retrieve a specific historical PDF report, make a HTTP GET request to
 
 _/api/v2/business/{screeningToken}/report/{reportId}_
 
