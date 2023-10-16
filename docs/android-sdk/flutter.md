@@ -36,7 +36,7 @@ To get a <token\> value used above, please contact **GlobalPass** support.
 ### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
-implementation 'ch.globalpass.sdk:release:1.2.14'
+implementation 'ch.globalpass.sdk:release:1.2.17'
 ```
 
 ### c. Sync gradle
