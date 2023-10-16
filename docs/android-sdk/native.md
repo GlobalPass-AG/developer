@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass Android SDK version: **1.2.14**
+Latest GlobalPass Android SDK version: **1.2.17**
 :::
 
 ## 1. Connect GlobalPass SDK

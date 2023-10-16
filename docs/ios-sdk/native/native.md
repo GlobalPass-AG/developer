@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass iOS SDK version: **1.9**
+Latest GlobalPass iOS SDK version: **1.11**
 :::
 
 ## 1. CocoaPods installation step-by-step

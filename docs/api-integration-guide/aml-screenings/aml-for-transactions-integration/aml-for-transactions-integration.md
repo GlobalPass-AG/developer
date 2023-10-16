@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# AML for Transactions Integration
+# AML for Transactions integration
 
 AML for Transactions allows screening any data of an individual or a business and retrieving AML screening results. It is used for transaction monitoring, to screen the counterparties and financial institutions of a transaction.
 

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# AML For Address Integration
+# AML For Address integration
 
 To intiate an address aml screening, make HTTP POST request to:
 
