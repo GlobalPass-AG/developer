@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkglobalpass_docs=self.webpackChunkglobalpass_docs||[]).push([[940],{3769:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);
