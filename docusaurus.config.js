@@ -15,7 +15,7 @@ const config = {
   organizationName,
   projectName,
   // Set the production url of your site here
-  url: "https://developer.globalpass.ch",
+  url: "https://docs.globalpass.ch",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: `/${projectName}/`,
@@ -38,7 +38,7 @@ const config = {
       ({
         docs: {
           editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
-          routeBasePath: "/",
+          routeBasePath: `/${projectName}`,
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
           // showLastUpdateTime: true,
