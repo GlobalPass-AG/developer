@@ -5,7 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 const darkCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 
 const organizationName = "GlobalPass-AG";
-const projectName = "developer";
+const projectName = "docs";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
