@@ -4,17 +4,21 @@
 const lightCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 const darkCodeTheme = require("prism-react-renderer/themes/nightOwlLight");
 
+const organizationName = "GlobalPass-AG";
+const projectName = "developer";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Developer GlobalPass",
   // tagline: 'GlobalPass developers are cool',
   favicon: "https://cdn.globalpass.ch/assets/favicon_globalpass.ico",
-
+  organizationName,
+  projectName,
   // Set the production url of your site here
   url: "https://developer.globalpass.ch",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: `/${projectName}/`,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -33,6 +37,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
