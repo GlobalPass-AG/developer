@@ -39,6 +39,7 @@ const sidebars = {
         "android-sdk/flutter",
         "android-sdk/native",
         "android-sdk/react-native/react-native",
+        "android-sdk/changelog"
       ],
       collapsible: false,
     },
@@ -56,6 +57,7 @@ const sidebars = {
         "ios-sdk/flutter",
         "ios-sdk/native/native",
         "ios-sdk/react-native/react-native",
+        "ios-sdk/changelog"
       ],
       collapsible: false,
     },

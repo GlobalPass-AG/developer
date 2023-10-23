@@ -1,4 +1,10 @@
-# Version 1.2.17
+---
+hide_table_of_contents: true
+---
+
+# Changelog
+
+## Version 1.2.17
 
 > 2023-10-16
 

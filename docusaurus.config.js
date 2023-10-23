@@ -37,7 +37,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          editUrl: `https://github.com/${organizationName}/${projectName}/tree/main/`,
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
