@@ -41,7 +41,7 @@ const config = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           sidebarCollapsible: true,
-          // showLastUpdateTime: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
