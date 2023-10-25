@@ -198,10 +198,6 @@ Available locales:
 - Russian `ru`
 - Chinese Simplified `zh-CN`
 - Lithuanian `lt`
-- Italian `it`
-- Portuguese `pt-BR`
-- Spanish `es-MX`
-- Arabic `ar`
 
 :::note
 If an unsupported locale will be provided, the SDK will fallback to English.
