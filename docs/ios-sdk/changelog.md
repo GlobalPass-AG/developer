@@ -4,7 +4,9 @@ hide_table_of_contents: true
 
 # Changelog
 
-:::note Breaking changes are highlighted in bold. :::
+:::note
+Breaking changes are highlighted in bold.
+:::
 
 ## Version 1.11
 
