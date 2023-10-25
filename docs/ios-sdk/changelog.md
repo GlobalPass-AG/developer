@@ -2,9 +2,9 @@
 hide_table_of_contents: true
 ---
 
-# iOS SDK Changelog
+# Changelog
 
-:::note Breaking changes are highlighted in bold.:::
+:::note Breaking changes are highlighted in bold. :::
 
 ## Version 1.11
 
