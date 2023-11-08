@@ -37,7 +37,7 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
 
 ```js title="Example response #2"
 {
-    "status": "Rejected"
+    "status": "Rejected",
     "isActive": false
 }
 ```
