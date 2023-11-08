@@ -66,7 +66,8 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
   "status": "Accepted",
   "riskLevel": "Low",
   "comments": ["KYC verification completed successfully."],
-  "tags": ["Expiring"]
+  "tags": ["Expiring"],
+  "isActive": true
 }
 ```
 
@@ -77,7 +78,8 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
   "comments": [
     "The security of the network used for the identity verification process could not be validated successfully. Please repeat the identity verification process using a different network, or disable any VPN or web proxy software, if used."
   ],
-  "tags": ["Suspicious"]
+  "tags": ["Suspicious"],
+  "isActive": false
 }
 ```
 
@@ -88,7 +90,8 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
   "comments": [
     "After a careful evaluation of the personal information and documents that were submitted, our KYC compliance team has unfortunately taken the final decision to reject your application."
   ],
-  "tags": ["Blacklisted", "Duplicate"]
+  "tags": ["Blacklisted", "Duplicate"],
+  "isActive": true
 }
 ```
 
@@ -109,7 +112,7 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
 
 - BadData
 - ConditionsNotMet
-- DocumentExpired"
+- DocumentExpired
 
 > Possible **tags** values:
 
@@ -119,6 +122,15 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
 - Suspicious
 - Expiring
 - Expired
+
+> Possible **isActive** values:
+
+- true
+- false
+
+:::note
+isActive is not returned in Address mode.
+:::
 
 #### Resubmission flow
 
@@ -143,7 +155,8 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
         "status": "Accepted",
         "riskLevel": "Low",
         "comments": ["KYC verification completed successfully."],
-        "tags": ["Expiring"]
+        "tags": ["Expiring"],
+        "isActive": true
     },
     "basicData": {
         "firstName": "Sven",
