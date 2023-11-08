@@ -6,7 +6,7 @@ sidebar_position: 2
 
 During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to the webhook callback URL you provide to the GlobalPass support team. When receiving these requests, ensure that the body value of "secret" matches the webhook secret we will provide.
 
-**Webhook types:**
+#### Webhook types:
 
 | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,7 +17,7 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
 | address.submitted          | User has completed the **address mode** widget session, all data for the screening has been submitted. It is recommended to disable user's access to the address widget once this webhook is received, as the widget will not allow the user to submit any more data, unless the screening status changes to rejected with rejectReason BadData                                                                                                                              |
 | address.change             | When **address** screening status changes                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-**Example webhooks:**
+#### Example webhooks:
 
 ```json
 {
@@ -48,6 +48,8 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
   "secret": "secret"
 }
 ```
+
+#### Retrieving screening status
 
 To get screenings status, make an HTTP GET request to:
 
@@ -118,7 +120,11 @@ curl --location  --request GET 'https://screenings-api-test.globalpass.ch/api/v2
 - Expiring
 - Expired
 
+#### Resubmission flow
+
 If **rejectReason** is "BadData" or "DocumentExpired", you should prompt the user to go through the widget process again and provide the **same screening token** as used in the previous user's session to the widget. This way user will only need to repeat the specific screening sections that he failed during the previous attempt, and his screening report will update with the newly provided data.
+
+#### Retrieving full screening data
 
 To get full screening data, make an HTTP GET request to:
 
@@ -167,6 +173,8 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
 ```
 
 Country codes are provided in [ISO 3166-1 Alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
+
+#### Retrieving AML scan results
 
 To retrieve **AML scan results** from a completed screening, make an HTTP GET request to:
 
@@ -230,6 +238,34 @@ Where:
 | source.name        | Name of the source of the hit. Will return exact name of the source when the hit was found on an original list. Will return "Website" when the hit was found in media sources.                                                                                                                                                    |
 | source.countryName | Full name of the country that listed the hit (e.g., country that released a sanction list where the hit was count). Will return full country name of the source when the hit was found on an original list. Will return "International" when the hit was found in media sources, or in case of "Consolidated Sanctions List" hit. |
 | source.countryCode | 3-letter code in _ISO 3166-1 Alpha-3_ format of the country that released the hit. Available only when countryName is not "International", but a specific country.                                                                                                                                                                |
+
+#### Changing screening state
+
+:::note
+Changing screening state is only relevant if you use ongoing AML screening services. Screenings set as Inactive will not be included in the ongoing AML scan process, even if they have Accepted status. If required, it is possible to revert the state to Active afterwards, and the ongoing AML process will be resumed for that screening.
+:::
+
+:::note
+By default, all screenings will be **Active**. To mark screening as Inactive, you must do so manually on the Screening Report or via API, as described below.
+:::
+
+If you wish to mark a screening as **Inactive**, make an HTTP PUT request to:
+
+_/api/v2/screenings/{screeningToken}/active_
+
+In the request body, specify required `isActive` state - either `false` to set screening as **Inactive**, or `true` to set screening as **Active**.
+
+```bash title="Example request - setting state as Inactive"
+curl --location  --request PUT 'https://screenings-api-test.globalpass.ch/api/v2/screenings/9519c730-5d6e-4c23-b89a-8c4d06899e7f/active' --header 'Authorization: Bearer {your_access_token}'\-H 'Content-Type: application/json' \-d '{"isActive": false}'
+```
+
+```bash title="Example request - setting state as Active"
+curl --location  --request PUT 'https://screenings-api-test.globalpass.ch/api/v2/screenings/9519c730-5d6e-4c23-b89a-8c4d06899e7f/active' --header 'Authorization: Bearer {your_access_token}'\-H 'Content-Type: application/json' \-d '{"isActive": true}'
+```
+
+If the state change is successful, API will respond with code 204.
+
+#### Accessing screening reports
 
 To access any given screening report, you can navigate to:
 
