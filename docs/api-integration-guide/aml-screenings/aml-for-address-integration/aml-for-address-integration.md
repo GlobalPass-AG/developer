@@ -16,12 +16,12 @@ Request body:
 
 | Property              | Description                                                 |
 | --------------------- | ----------------------------------------------------------- |
-| address               | Main address                                                |
-| city                  | City of the address (optional)                              |
-| postalCode            | Address postal code (optional)                              |
-| state                 | Address state (optional) (applicable for US)                |
+| address               | Street address                                              |
+| city                  | City (optional)                                             |
+| postalCode            | Postal or Zip code (optional)                               |
+| state                 | State (optional) (applicable for USA and Canada)            |
 | countryCode           | ISO 3166-1 alpha-3 compliant country code (optional)        |
-| externalId            | Specify your internal identifier to be set on the screening. (optional)|
+| externalId            | Your internal identifier to be set on the screening. (optional)|
 
 ```bash title="Example request"
 curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/address' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}'-H 'Content-Type: application/json' -d '{ "address": "Gran Subida Mario, 7", "city": "Málaga", "countryCode": "ESP", "postalCode": "37764", "externalId": "AAA111" }'
