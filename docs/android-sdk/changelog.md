@@ -4,11 +4,15 @@ hide_table_of_contents: true
 
 # Changelog
 
-:::note
-Breaking changes are highlighted in bold.
-:::
+Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find the list of latest releases with release notes.
 
-## Version 1.2.17
+### Version 1.2.18
+
+> Released on 2023-11-14
+
+- Added support for 4 new locales: `es-MX`, `pt-BR`, `it` and `ar`.
+
+### Version 1.2.17
 
 > Released on 2023-10-16
 

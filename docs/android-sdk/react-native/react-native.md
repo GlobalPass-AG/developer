@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass Android SDK version: **1.2.17**
+Latest GlobalPass Android SDK version: **1.2.18**
 :::
 
 ## 1. Connect GlobalPass SDK
@@ -36,7 +36,7 @@ To get a <token\> value used above, please contact **GlobalPass** support.
 ### b. Add this code to the App level _build.gradle_ file under `dependencies`:
 
 ```gradle title="build.gradle"
-implementation 'ch.globalpass.sdk:release:1.2.17'
+implementation 'ch.globalpass.sdk:release:1.2.18'
 ```
 
 ### c. Sync gradle
@@ -264,11 +264,16 @@ You can provide your own customer ID to be assigned to the screening flow. By de
 By default, the SDK is displayed in English. To specify a different SDK display language, you can provide the locale code here.
 
 Available locales:
-- English (`en`)
-- German (`de`)
-- Russian (`ru`)
-- Chinese Simplified (`zh-CN`)
-- Lithuanian (`lt`)
+
+- `en` - English
+- `de` - German
+- `es-MX` - Spanish
+- `it` - Italian
+- `lt` - Lithuanian
+- `pt-BR` - Portuguese
+- `ru` - Russian
+- `ar` - Arabic
+- `zh-CN` - Chinese Simplified
 
 :::note
 If an unsupported locale will be provided, the SDK will fallback to English.
