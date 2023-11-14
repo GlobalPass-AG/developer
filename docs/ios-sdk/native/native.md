@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass iOS SDK version: **1.11**
+Latest GlobalPass iOS SDK version: **1.12**
 :::
 
 ## 1. CocoaPods installation step-by-step
@@ -30,7 +30,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 and required dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.11'
+pod 'GlobalPass', '~> 1.12'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
 ```
 
@@ -193,11 +193,16 @@ DispatchQueue.main.async {
 }
 ```
 Available locales:
-- English `en`
-- German `de`
-- Russian `ru`
-- Chinese Simplified `zh-CN`
-- Lithuanian `lt`
+
+- `en` - English
+- `de` - German
+- `es-MX` - Spanish
+- `it` - Italian
+- `lt` - Lithuanian
+- `pt-BR` - Portuguese
+- `ru` - Russian
+- `ar` - Arabic
+- `zh-CN` - Chinese Simplified
 
 :::note
 If an unsupported locale will be provided, the SDK will fallback to English.
