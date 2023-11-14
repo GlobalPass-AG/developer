@@ -27,6 +27,10 @@ curl --location --request POST 'https://screenings-api-test.globalpass.ch/api/v2
 {"token": "bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"}
 ```
 
+:::caution IMPORTANT
+For each unique user account in your system, you should issue and keep only **one screening token** - treat it as each user's **unique GlobalPass Screening ID**. Therefore, when propmpting user to repeat a widget session, or when initializing identity and address screening modes of the same unique user, make sure to provide the same unique screening token issued for the unique user.
+:::
+
 #### Initiating GlobalPass Widget
 
 After getting the screening token, provide it to our javascript widget that you have pasted into your frontend.
@@ -72,10 +76,6 @@ Your page should look something like this:
 
 :::note
 Specifying mode is required if you wish to use _Split Flow_ approach. If _Regular Flow_ is used – do not specify mode. Before starting integration, contact GlobalPass support to find out more about the differences and inform which approach you wish to use, as appropriate set-up on GlobalPass end will be required as well.
-:::
-
-:::caution IMPORTANT
-For each unique user account in your system, you should issue and keep only **one screening token** - treat it as each user's **unique GlobalPass Screening ID**. Therefore, when propmpting user to repeat a widget session, or when initializing identity and address screening modes of the same unique user, make sure to provide the same unique screening token issued for the unique user.
 :::
 
 ##### Specifying required language
