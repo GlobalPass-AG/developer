@@ -5,14 +5,14 @@ hide_table_of_contents: true
 # Native
 
 :::note
-Latest GlobalPass iOS SDK version: **1.12**
+Latest GlobalPass iOS SDK version: **2.0**
 :::
 
-## 1. CocoaPods installation step-by-step
+## CocoaPods installation
 
-### a. Edit Podfile
+### Configure Podfile
 
-Add plugin to the beginning of Podfile:
+In order to download `FaceTec` dependency, provide `cocoapods-azure-universal-packages` configuration at the beginning of your Podfile as described below:
 
 ```ruby
 plugin 'cocoapods-azure-universal-packages', {
@@ -20,27 +20,42 @@ plugin 'cocoapods-azure-universal-packages', {
 }
 ```
 
-Provide `source` urls:
+Declare `source` URLs so Cocoapods be able to download dependencies podspec files.
 
 ```ruby
 source 'https://cdn.cocoapods.org'
 source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sdk-ios-private-specs'
 ```
 
-and required dependencies:
+Under the application module declare the following dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 1.12'
-pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.2'
+pod 'GlobalPass', '~> 2.0'
+pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.3'
+pod `lottie-ios`, `~> 4.3.4`
 ```
 
-### b. Install Cocoa Pods in Terminal
+To the end of application module declaration add these lines to configure build process:
 
-Run the following commands:
+```ruby
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+  end
+```
+
+### Login into azure cli
+
+To properly download FaceTec dependency, we need to configure `azure-cli`.
+First step is downloading the utility:
 
 ```bash
 $ brew update && brew install azure-cli
 ```
+After that, run login command:
 
 ```bash
 $ az devops login
@@ -50,17 +65,23 @@ $ az devops login
 When asked for credentials, put the **repository access token** you were provided by GlobalPass.
 :::
 
+Once authorization succeedes, install cocoapods azure plugin with the following command:
+
 ```bash
 $ gem install cocoapods-azure-universal-packages
 ```
+
+In the end, generate your project again with pods:
 
 ```bash
 $ pod install
 ```
 
-## 2. Project setup
+## Project setup
 
-### Paste the following lines to `Info.plist`
+### `Info.plist` configuration
+
+GlobalPass SDK makes the use of location, NFC and camera capabilities when they are requested. To properly ask the user about access to these features, add the following keys into your project's `Info.plist` file:
 
 ```xml title="Info.plist"
 <key>NFCReaderUsageDescription</key>
@@ -81,9 +102,9 @@ $ pod install
 Please change the descriptions under `NFCReaderUsageDescription`, `NSCameraUsageDescription` and `NSLocationWhenInUseUsageDescription` in the file above. This is important to pass **App Store** review process for your application.
 :::
 
-## 3. Usage
+## Usage
 
-### Regular flow
+### Full Screening Flow
 
 ```swift
 do {
@@ -119,7 +140,7 @@ You should present this controller over the `rootViewController`.
 
 And that’s it. After the KYC flow is passed SDK returns control to React Native part by dismissing its view controller and calling the callback you passed earlier.
 
-### Split flow
+### Split Screening Flow
 
 To start split screening instead of a regular one should call `startSplitScreening` method passing there a type of a split process (`identity` or `address`). The rest of the steps are the same as in the case of the regular screening flow.
 
@@ -138,7 +159,7 @@ DispatchQueue.main.async {
 }
 ```
 
-### Instant Biometrics flow
+### Instant Biometrics Flow
 
 ```swift
 do {
@@ -174,9 +195,9 @@ You should present this controller over the `rootViewController`.
 
 And that’s it. After the KYC flow is passed SDK dismisses its view controller and calls the callback you passed earlier.
 
-## 4. Localisation
+## Localisation
 
-To specify the required SDK display language, provide the `localeIdentifier` parameter with a string value containing the locale identifier in the function call:
+To specify the required localisation, provide the `localeIdentifier` parameter with a string value containing the locale identifier in the function call:
 
 ```swift
 do {
@@ -192,6 +213,7 @@ DispatchQueue.main.async {
     self.present(viewController, animated: true, completion: nil)
 }
 ```
+
 Available locales:
 
 - `en` - English
@@ -208,7 +230,8 @@ Available locales:
 If an unsupported locale will be provided, the SDK will fallback to English.
 :::
 
-`localeIdentifier` parameter is defined for static builders. Use the method without this parameter to use the default English localisation.
+`localeIdentifier` parameter is defined for static builders.\
+Use the method without this parameter to use the default English localisation.
 
 ```swift
 GlobalPassSDK.setupScreening(environment:screeningToken:) // Default English
@@ -216,3 +239,28 @@ GlobalPassSDK.setupScreening(environment:screeningToken:localeIdentifier:) // Pr
 GlobalPassSDK.setupInstant(environment:instantBiometricsId:) // Default English
 GlobalPassSDK.setupInstant(environment:instantBiometricsId:localeIdentifier:) // Provided Localisation
 ```
+
+## Customisation
+
+SDK provides `GPFontConfiguration` type, specifically designed to facilitate the customization of font styles. This configuration allows you to define the `regular` and `semibold` font styles. Other configuration aspects such as colors and component sizes are dynamically configured by the backend.
+
+```swift
+try? GlobalPassSDK.setupScreening(
+    environment: .dev,
+    screeningToken: "...",
+    fontConfiguration: GPFontConfiguration(
+        regular: .systemFont(ofSize: 1.0, weight: .regular),
+        semibold: .systemFont(ofSize: 1.0, weight: .semibold)
+    )
+)
+```
+
+## Privacy
+
+The GlobalPass SDK collects sensitive user data, including location and personal details, to support KYC processes. This data is exclusively used within the SDK and is not shared with any third parties. To align with Apple's privacy standards, the SDK includes a [privacy manifest file](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files) detailing all types of data collected.
+
+## Security
+
+Starting from version 2.0, the GlobalPass SDK bundle incorporates a [code signature](https://developer.apple.com/documentation/xcode/verifying-the-origin-of-your-xcframeworks), endorsed by the Apple Developer Program.
+
+
