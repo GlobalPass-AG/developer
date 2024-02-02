@@ -10,10 +10,10 @@ Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the l
 
 > Released on 2024-02-02
 
-- New design of the appearance of the SDK and support for full customization of the appearance, customized via the Portal.
+- New design of the appearance of the SDK and support for full customization via the Portal.
 - Added POA document type selector, configured via the Portal.
-- Added support for light & dark mode.
-- Added options to upload photo of ID.
+- Added support for dark mode.
+- Added option to upload ID photo from device, configured via the Portal.
 
 Developer notes:
 - Added callback methods to start the SDK, allowing it to run with custom color settings set in the background.
