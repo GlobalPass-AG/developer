@@ -372,7 +372,7 @@ GlobalPassSDK.setupInstant(environment:instantBiometricsId:localeIdentifier:) //
 
 ## Customisation
 
-SDK provides `GPFontConfiguration` type, specifically designed to facilitate the customization of font styles. This configuration allows you to define the `regular` and `semibold` font styles. Other configuration aspects such as colors and component sizes are dynamically configured by the backend.
+SDK provides `GPFontConfiguration` type, specifically designed to facilitate the customization of font styles. This configuration allows you to define the `regular` and `semibold` font styles. Other configuration aspects such as colors and component sizes can be configured in the GlobalPass Portal.
 
 ```swift
 try? GlobalPassSDK.setupScreening(
@@ -384,6 +384,8 @@ try? GlobalPassSDK.setupScreening(
     )
 )
 ```
+
+The SDK supports both Light and Dark modes. If your application does not support dark mode, you can disable it by following instructions in [this article](https://sarunw.com/posts/how-to-disable-dark-mode-in-ios/).
 
 ## Privacy
 
