@@ -138,7 +138,7 @@ GlobalPassSDK.startScreening(externalID: "some external id")
 
 You should present this controller over the `rootViewController`.
 
-And that’s it. After the KYC flow is passed SDK returns control to React Native part by dismissing its view controller and calling the callback you passed earlier.
+And that’s it. After the KYC flow is passed SDK dismisses its view controller and calls the callback you passed earlier.
 
 ### Split Screening Flow
 
