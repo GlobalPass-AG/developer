@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass iOS SDK version **2.0**
+Latest GlobalPass iOS SDK version: **2.0**
 :::
 
 ## CocoaPods installation
