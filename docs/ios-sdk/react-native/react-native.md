@@ -8,6 +8,11 @@ hide_table_of_contents: true
 Latest GlobalPass iOS SDK version: **2.0**
 :::
 
+## Requirements
+
+- iOS 13+
+- Xcode 15.1+
+
 ## CocoaPods installation
 
 ### Configure Podfile
