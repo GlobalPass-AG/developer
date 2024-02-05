@@ -34,7 +34,7 @@ maven {
 ```
 
 :::info
-To get a <token> value used above, please contact **GlobalPass** support.
+To get a <token\> value used above, please contact **GlobalPass** support.
 :::
 
 ### b. Add this code to the App level build.gradle file under dependencies:
