@@ -5,14 +5,16 @@ hide_table_of_contents: true
 # React Native
 
 :::note
-Latest GlobalPass Android SDK version: **1.2.19**
+Latest GlobalPass Android SDK version: **2.0**
 :::
 
 ## 1. Connect GlobalPass SDK
 
-### a. Add this code to the Project level _build.gradle_ file under `allprojects -> repositories` section:
+### a. Add this code to the Project level build.gradle file under allprojects -> repositories section:
 
-```gradle title="build.gradle"
+#### build.gradle
+
+```gradle
 /* GlobalPass SDK Maven Repository */
 maven {
     url 'https://pkgs.dev.azure.com/isun-ag/GlobalPassApp-Public/_packaging/GlobalPassAndroidSDK/maven/v1'
@@ -30,64 +32,62 @@ maven {
 ```
 
 :::info
-To get a <token\> value used above, please contact **GlobalPass** support.
+To get a <token> value used above, please contact GlobalPass support.
 :::
 
-### b. Add this code to the App level _build.gradle_ file under `dependencies`:
+### b. Add this code to the App level build.gradle file under dependencies:
 
-```gradle title="build.gradle"
-implementation 'ch.globalpass.sdk:release:1.2.19'
+#### build.gradle
+
+```gradle
+implementation 'ch.globalpass.sdk:release:2.0'
 ```
 
 ### c. Sync gradle
 
-:::tip
+:::warning If you use **ProGuard** in your project you should include these rules:
+:::
 
-If you use **ProGuard** in your project you should include these rules:
+```proguard
+-keep class ch.globalpass.globalpasssdk.domain.model.** { *; }
+-keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*; }
+-keep class org.jmrtd.** {*; }
 
-```
--keep class ch.globalpass.globalpasssdk.domain.model.** { *;}
--keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*;}
-
--keep class org.jmrtd.** {*;}
--keep class net.sf.scuba.** {*;}
--keep class org.bouncycastle.** {*;}
--keep class org.spongycastle.** {*;}
--keep class org.ejbca.** {*;}
+-keep class net.sf.scuba.** {*; }
+-keep class org.bouncycastle.** {*; }
+-keep class org.spongycastle.** {*; }
+-keep class org.ejbca.** {*; }
 
 -dontwarn javax.annotation.Nullable
 -dontwarn com.facetec.sdk.**
--keep class com.facetec.sdk.**
-{ *; }
+-keep class com.facetec.sdk.** { *; }
 ```
-
-:::
 
 ## 2. Create Native module to communicate with React Native
 
-Official documentation: [https://reactnative.dev/docs/native-modules-android#module-name](https://reactnative.dev/docs/native-modules-android#module-name)
+Official documentation: [React Native Native Modules](https://reactnative.dev/docs/native-modules-android#module-name)
 
 ### a. Create interface with functions you need in your module e.g.:
 
+#### interface GPFacade
+
 ```kotlin
 interface GPFacade {
+    @ReactMethod
+    fun buildKYCProd(token: String, promise: Promise)
+    
+    @ReactMethod
+    fun buildKYCDev(token: String, promise: Promise)
+    
+    @ReactMethod
+    fun buildIBProd(token: String, promise: Promise)
 
-  @ReactMethod
-  fun buildKYCProd(token: String, promise: Promise)
-
-  @ReactMethod
-  fun buildKYCDev(token: String, promise: Promise)
-
-  @ReactMethod
-  fun buildIBProd(token: String, promise: Promise)
-
-  @ReactMethod
-  fun buildIBDev(token: String, promise: Promise)
-
+    @ReactMethod
+    fun buildIBDev(token: String, promise: Promise)
 }
 ```
 
-### b. Create an implementation of your interface. Also you need to extend
+### b. Create an implementation of your interface. Also, you need to extend
 
 ```kotlin
 class GlobalPassSDKManager(
@@ -165,7 +165,7 @@ class GlobalPassSDKManager(
 
 ### c. Implement ReactPackage interface:
 
-```java
+```kotlin
 public class GlobalPassPackage implements ReactPackage {
 
  @NonNull
@@ -187,13 +187,13 @@ public class GlobalPassPackage implements ReactPackage {
 
 ### d. Add your Package class to MainApplication.java -> getPackages()
 
-```java
-packages.add(new GlobalPassPackage ());
+```kotlin
+packages.add(new GlobalPassPackage())
 ```
 
-## 3. Connect your module with React Native:
+## 3. Connect your module with React Native
 
-Define in App.js your modules:
+Define in App.js your modules:\
 
 ![NativeModules](content/native-modules.png)
 
@@ -213,16 +213,17 @@ GPFacade.buildIBProd(screeningToken);
 GPFacade.buildIBDev(screeningToken);
 ```
 
-## 6. Additional optional parameters in `start()` function:
+## 6. Additional optional parameters in `start()` function
 
 There are additional optional parameters in `start()` function:
 
-| Parameter        | Description                                                 |
-| ---------------- | ----------------------------------------------------------- |
-| enableFileLogger | Enable Logger to write SDK logs.                            |
-| widgetMode       | Select matching widget mode if `Split` flow is used.        |
+| Parameter        | Description                                                           |
+| ---------------- | --------------------------------------------------------------------- |
+| enableFileLogger | Enable Logger to write SDK logs.                                      |
+| widgetMode       | Select matching widget mode if `Split` flow is used.                  |
 | externalId       | Specify your internal customer identifier to be set on the screening. |
-| languageCode     | Specify SDK language using available langauage options.   |
+| languageCode     | Specify SDK language using available langauage options.               |
+| typefaceMap      | Customize SDK fonts using your own ones.                              |
 
 ```kotlin
 globalPassSdk.start(
@@ -230,21 +231,24 @@ globalPassSdk.start(
     enableFileLogger = true,
     widgetMode: WidgetMode = WidgetMode.FULL_MODE,
     externalId: String? = null,
-    languageCode: String = "en"
+    languageCode: String = "en",
+    typefaceMap: Map<FONT_WEIGHT, Typeface?> = null
 )
 ```
 
-### `enableFileLogger`
+### enableFileLogger
 
-There is an optional Logger that writes logs into file which could be found in Internal Storage:
+There is an optional Logger that writes logs into a file which could be found in Internal Storage:
 
-`File Storage → Android → data → “your app package” → files → logs → logs file`
+**File Storage → Android → data → “your app package” → files → logs → logs file**
 
 It is optional and `false` by default. To enable the logger you need to set it to `true`.
 
-### `widgetMode`
+### widgetMode
 
-To use **Split** flow, matching widgetMode must be selected. By default it is set to `FULL_MODE`. To select mode you can use sealed class WidgetMode
+To use **Split** flow, matching widgetMode must be selected. By default, it is set to FULL_MODE. To select mode you can use sealed class WidgetMode
+
+#### enum class WidgetMode
 
 ```kotlin
 enum class WidgetMode(val value: String?) {
@@ -254,12 +258,11 @@ enum class WidgetMode(val value: String?) {
 }
 ```
 
-### `externalId`
+### externalId
 
 You can provide your own customer ID to be assigned to the screening flow. By default value is `null`.
 
-
-### `languageCode`
+### languageCode
 
 By default, the SDK is displayed in English. To specify a different SDK display language, you can provide the locale code here.
 
