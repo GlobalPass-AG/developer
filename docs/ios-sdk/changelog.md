@@ -6,6 +6,26 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.0
+
+> Released on 2024-02-02
+
+Design changes:
+- Fully redesigned appearance of the SDK.
+- Added support for full design customization, configured via the Portal.
+- Added support for dark mode.
+- Introduced `GPFontConfiguration` to provide custom fonts in the SDK. Regular and semibold fonts are currently supported.
+
+New features & updates:
+- Added POA document type selector, configured via the Portal.
+- Added option to upload ID photo from device, configured via the Portal.
+- Upgraded face liveness version.
+
+Developer notes:
+- Added required lottie dependency to run animations.
+- Added callback methods to start the SDK, allowing it to run with custom color settings set in the background.
+- Added privacy manifest and code signing in accordance with Apple's privacy policy.
+
 ### Version 1.12
 
 > Released on 2023-11-14
