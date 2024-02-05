@@ -4,14 +4,14 @@ hide_table_of_contents: true
 
 # Flutter
 
-:::note
+:::note SDK Version
 Latest GlobalPass iOS SDK version: **2.0**
 :::
 
-## Requirements
-
+:::info Requirements
 - iOS 13+
 - Xcode 15.1+
+:::
 
 ## CocoaPods installation
 
