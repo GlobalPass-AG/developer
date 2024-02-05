@@ -19,6 +19,7 @@ Design changes:
 New features & updates:
 - Added POA document type selector, configured via the Portal.
 - Added option to upload ID photo from device, configured via the Portal.
+- Added Postal Code validation, if enabled in the Portal. Currently available for 30+ European countries.
 - Upgraded face liveness version.
 
 ### Version 1.2.19
