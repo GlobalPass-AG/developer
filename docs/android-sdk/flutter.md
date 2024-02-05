@@ -51,10 +51,10 @@ implementation 'ch.globalpass.sdk:release:2.0'
 ### c. Sync gradle
 
 :::warning
-If you use ProGuard in your project you should include these rules:
+If you use **ProGuard** in your project you should include these rules:
 :::
 
-```proguard
+```
 -keep class ch.globalpass.globalpasssdk.domain.model.** { *; }
 -keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*; }
 -keep class org.jmrtd.** {*; }
@@ -252,7 +252,7 @@ There are additional optional parameters in `start()` function:
 | widgetMode       | Select matching widget mode if `Split` flow is used.                  |
 | externalId       | Specify your internal customer identifier to be set on the screening. |
 | languageCode     | Specify SDK language using available langauage options.               |
-| typefaceMap:     | Customize SDK fonts using your own ones.                              |
+| typefaceMap      | Customize SDK fonts using your own ones.                              |
 
 ```kotlin
 globalPassSdk.start(

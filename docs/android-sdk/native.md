@@ -2,6 +2,8 @@
 hide_table_of_contents: true
 ---
 
+# Native
+
 :::note
 Latest GlobalPass Android SDK version: 2.0
 :::
@@ -57,7 +59,7 @@ id "net.linguica.maven-settings" version "0.5"
 If you use **ProGuard** in your project you should include these rules:
 :::
 
-```proguard
+```
 -keep class ch.globalpass.globalpasssdk.domain.model.** { *; }
 -keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*; }
 

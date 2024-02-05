@@ -38,7 +38,7 @@ maven {
 ```
 
 :::info
-To get a <token> value used above, please contact GlobalPass support.
+To get a <token\> value used above, please contact GlobalPass support.
 :::
 
 ### b. Add this code to the App level build.gradle file under dependencies:
@@ -54,7 +54,7 @@ implementation 'ch.globalpass.sdk:release:2.0'
 :::warning If you use **ProGuard** in your project you should include these rules:
 :::
 
-```proguard
+```
 -keep class ch.globalpass.globalpasssdk.domain.model.** { *; }
 -keep class ch.globalpass.globalpasssdk.data.networkmodels.** {*; }
 -keep class org.jmrtd.** {*; }
