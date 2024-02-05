@@ -285,15 +285,16 @@ You can provide your own customer ID to be assigned to the screening flow. By de
 ### languageCode
 
 By default, the SDK is displayed in English. Available locales:
-- en - English
-- de - German
-- es-MX - Spanish
-- it - Italian
-- lt - Lithuanian
-- pt-BR - Portuguese
-- ru - Russian
-- ar - Arabic
-- zh-CN - Chinese Simplified
+
+- `en` - English
+- `de` - German
+- `es-MX` - Spanish
+- `it` - Italian
+- `lt` - Lithuanian
+- `pt-BR` - Portuguese
+- `ru` - Russian
+- `ar` - Arabic
+- `zh-CN` - Chinese Simplified
 
 :::note
 If an unsupported locale will be provided, the SDK will fallback to English.
