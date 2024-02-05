@@ -200,7 +200,7 @@ packages.add(new GlobalPassPackage())
 
 ## 3. Connect your module with React Native
 
-Define in App.js your modules:\
+Define in App.js your modules:
 
 ![NativeModules](content/native-modules.png)
 
