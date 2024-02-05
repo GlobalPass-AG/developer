@@ -37,7 +37,8 @@ maven {
 }
 ```
 
-:::info To get a <token\> value used above, please contact GlobalPass support.
+:::info
+To get a <token> value used above, please contact GlobalPass support.
 :::
 
 ### b. Add this code to the App level build.gradle file under dependencies:
@@ -50,7 +51,7 @@ implementation 'ch.globalpass.sdk:release:2.0'
 
 ### c. Sync gradle
 
-:::warning
+:::caution
 If you use **ProGuard** in your project you should include these rules:
 :::
 
