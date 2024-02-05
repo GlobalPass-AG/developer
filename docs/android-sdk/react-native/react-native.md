@@ -281,3 +281,21 @@ Available locales:
 :::note
 If an unsupported locale will be provided, the SDK will fallback to English.
 :::
+
+### typefaceMap
+
+To set the font styles used in the GlobalPass SDK, you can utilize the `typefaceMap` parameter. Currently GlobalPass SDK allows to define `regular` and `semibold` font styles. To provide your own fonts you need to define a map that associates enum class `FONT_WEIGHT` provided by the SDK with its corresponding typeface.
+
+```kotlin
+globalPassSdk.start(
+    // ...
+    typefaceMap: Map<FONT_WEIGHT, Typeface?> = createTypefaceMap()
+)
+
+private fun createTypefaceMap() : Map<FONT_WEIGHT, Typeface?> = mapOf(
+        FONT_WEIGHT.REGULAR to ResourcesCompat.getFont(applicationContext, R.font.your_regular_font),
+        FONT_WEIGHT.SEMI_BOLD to ResourcesCompat.getFont(applicationContext, R.font.your_semibold_font)
+    )
+```
+
+Parameter `typefaceMap` is optional and `null` by default.
