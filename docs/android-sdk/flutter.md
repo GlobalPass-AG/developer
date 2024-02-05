@@ -4,15 +4,15 @@ hide_table_of_contents: true
 
 # Flutter
 
-:::note
+:::note SDK Version
 Latest GlobalPass Android SDK version: **2.0**
 :::
 
-## Requirements
-
+:::info Requirements
 - AndroidX
 - API level 23 (Android 6.0) or higher
 - Kotlin 1.7.20 or higher
+:::
 
 ## 1. Connect GlobalPass SDK
 
@@ -37,7 +37,8 @@ maven {
 }
 ```
 
-:::info To get a <token\> value used above, please contact GlobalPass support.
+:::info
+To get a <token> value used above, please contact GlobalPass support.
 :::
 
 ### b. Add this code to the App level build.gradle file under dependencies:
@@ -50,7 +51,7 @@ implementation 'ch.globalpass.sdk:release:2.0'
 
 ### c. Sync gradle
 
-:::warning
+:::caution
 If you use **ProGuard** in your project you should include these rules:
 :::
 
