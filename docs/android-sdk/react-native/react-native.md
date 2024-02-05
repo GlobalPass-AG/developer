@@ -4,12 +4,11 @@ hide_table_of_contents: true
 
 # React Native
 
-:::note
+:::note SDK Version
 Latest GlobalPass Android SDK version: **2.0**
 :::
 
-:::info
-**Requirements:**
+:::info Requirements
 - AndroidX
 - API level 23 (Android 6.0) or higher
 - Kotlin 1.7.20 or higher
