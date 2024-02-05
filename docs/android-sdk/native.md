@@ -6,6 +6,12 @@ hide_table_of_contents: true
 Latest GlobalPass Android SDK version: 2.0
 :::
 
+## Requirements
+
+- AndroidX
+- API level 23 (Android 6.0) or higher
+- Kotlin 1.7.20 or higher
+
 ## 1. Connect GlobalPass SDK
 
 ### a. Add this code to the Project level build.gradle file under allprojects -> repositories section:
