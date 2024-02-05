@@ -8,7 +8,7 @@ Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the l
 
 ### Version 2.0
 
-> Released on 2024-02-02
+> Released on 2024-02-05
 
 Design changes:
 - Fully redesigned appearance of the SDK.
