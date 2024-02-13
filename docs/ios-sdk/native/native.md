@@ -82,6 +82,10 @@ In the end, generate your project again with pods:
 $ pod install
 ```
 
+#### Troubleshooting
+
+If you are having problems with the pod cache, please follow this [answer](https://stackoverflow.com/questions/46428752/how-to-clear-or-clean-specific-pod-from-the-local-cocoapods-cache). If you link the GlobalPass framework to the application target manually, please make sure that you link the framework again after upgrading the SDK version.
+
 ## Project setup
 
 ### `Info.plist` configuration
@@ -246,7 +250,7 @@ GlobalPassSDK.setupInstant(environment:instantBiometricsId:localeIdentifier:) //
 
 ## Customisation
 
-SDK provides `GPFontConfiguration` type, specifically designed to facilitate the customization of font styles. This configuration allows you to define the `regular` and `semibold` font styles. Other configuration aspects such as colors and component sizes can be configured in the GlobalPass Portal.
+From version 2.0, SDK provides `GPFontConfiguration` type, specifically designed to facilitate the customization of font styles. This configuration allows you to define the `regular` and `semibold` font styles. Other configuration aspects such as colors and component sizes can be configured in the GlobalPass Portal.
 
 ```swift
 try? GlobalPassSDK.setupScreening(
@@ -259,7 +263,7 @@ try? GlobalPassSDK.setupScreening(
 )
 ```
 
-The SDK supports both Light and Dark modes. If your application does not support dark mode, you can disable it by following instructions in [this article](https://sarunw.com/posts/how-to-disable-dark-mode-in-ios/).
+From version 2.0, the SDK supports both Light and Dark modes. If your application does not support dark mode, you can disable it by following instructions in [this article](https://sarunw.com/posts/how-to-disable-dark-mode-in-ios/).
 
 ## Privacy
 
