@@ -6,6 +6,12 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.0.1
+
+> Released on 2024-02-21
+
+- Fixed issue with localization causing crash for some users.
+
 ### Version 2.0
 
 > Released on 2024-02-05
