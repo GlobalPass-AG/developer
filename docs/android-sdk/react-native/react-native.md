@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note SDK Version
-Latest GlobalPass Android SDK version: **2.0**
+Latest GlobalPass Android SDK version: **2.0.1**
 :::
 
 :::info Requirements
@@ -46,7 +46,7 @@ To get a <token\> value used above, please contact GlobalPass support.
 #### build.gradle
 
 ```gradle
-implementation 'ch.globalpass.sdk:release:2.0'
+implementation 'ch.globalpass.sdk:release:2.0.1'
 ```
 
 ### c. Sync gradle
