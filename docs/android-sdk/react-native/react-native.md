@@ -315,7 +315,7 @@ Parameter `typefaceMap` is optional and `null` by default.
 Creating and providing instance of FlowCallbackProvider allows reacting to different widget flow events:
 
 - onScreenOpened(screenName: String) when widget is opened,
-- onFlowCanceled() when widget flow is canceled (exited) by the aplicant without completing it,
+- onFlowCanceled() when widget flow is canceled (exited) by the applicant without completing it,
 - onFlowFinished() when widget flow is completed.
 
 ```kotlin
