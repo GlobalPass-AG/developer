@@ -8,7 +8,7 @@ Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the l
 
 ### Version 2.1
 
-> Released on 2024-05-07
+> Released on 2024-05-06
 
 - Added `GPEvents` enumeration to observe SDK flow events, including:
     - flow is started
