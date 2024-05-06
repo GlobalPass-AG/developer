@@ -10,8 +10,11 @@ Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find t
 
 > Released on 2024-04-29
 
-- Added flow callback provider which observes widget flow events: when widget flow starts, is canceled cancels and finishes.
-- Added error screen for expired instant biometrics session.
+- Added flow callback provider which observes widget flow events:
+    - flow is started
+    - flow is canceled
+    - flow is completed
+- Added error screen for handling instant biometrics session expiry.
 - Fixed issue where after recapturing identity document image after receiving a validation error the error does not disappear.
 
 ### Version 2.0.1
