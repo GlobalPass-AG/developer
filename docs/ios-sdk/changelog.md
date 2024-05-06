@@ -6,6 +6,15 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 
+
+- Added `GPEvents` enumeration to observe SDK flow events, including:
+    - flow is started
+    - flow is canceled
+    - flow is completed
+- Added error screen for handling instant biometrics session expiry
+- Bug fixes
+
 ### Version 2.0
 
 > Released on 2024-02-05
