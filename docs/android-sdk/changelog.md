@@ -8,7 +8,7 @@ Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find t
 
 ### Version 2.0.2
 
-> Released on 2024-05-07
+> Released on 2024-05-06
 
 - Added flow callback provider which observes SDK flow events:
     - flow is started
