@@ -14,8 +14,8 @@ Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find t
     - flow is started
     - flow is canceled
     - flow is completed
-- Added error screen for handling instant biometrics session expiry.
-- Fixed issue where after recapturing identity document image after receiving a validation error the error does not disappear.
+- Added error screen for handling instant biometrics session expiry
+- Fixed issue where after recapturing identity document image after receiving a validation error the error does not disappear
 
 ### Version 2.0.1
 
