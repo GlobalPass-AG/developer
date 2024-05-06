@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # React Native
 
 :::note SDK Version
-Latest GlobalPass iOS SDK version: **2.0**
+Latest GlobalPass iOS SDK version: **2.1**
 :::
 
 :::info Requirements
@@ -35,7 +35,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 Under the application module declare the following dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 2.0'
+pod 'GlobalPass', '~> 2.1'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.3'
 pod `lottie-ios`, `~> 4.3.4`
 ```
@@ -341,6 +341,52 @@ id sdk = [[GlobalPassSDK alloc] initWithEnvironment:GlobalPassEnvironmentDev
 ```
 
 From version 2.0, the SDK supports both Light and Dark modes. If your application does not support dark mode, you can disable it by following instructions in [this article](https://sarunw.com/posts/how-to-disable-dark-mode-in-ios/).
+
+## Callback Management
+
+SDK provides the ability to track navigation events between screens.
+The list of possible events is provided through `GPEvents` enumeration.
+
+```swift
+public enum GPEvents: Int {
+    case commentsControllerPresented                      // 0
+    case initialControllerPresented                       // 1
+    case welcomeControllerPresented                       // 2
+    case faceTecGuideControllerPresented                  // 3
+    case screeningFaceTecInitialisingControllerPresented  // 4
+    case instantFaceTecInitialisingControllerPresented    // 5
+    case instantFaceTecProcessingControllerPresented      // 6
+    case screeningFaceTecProcessingControllerPresented    // 7
+    case faceTecFailureControllerPresented                // 8
+    case faceTecSessionFailureControllerPresented         // 9
+    case documentSelectionControllerPresented             // 10
+    case documentGuideControllerPresented                 // 11
+    case documentPhotoControllerPresented                 // 12
+    case nfcControllerPresented                           // 13
+    case personalDetailsControllerPresented               // 14
+    case addressDetailsControllerPresented                // 15
+    case proofOfAddressControllerPresented                // 16
+    case countriesListControllerPresented                 // 17
+    case instantCompleteControllerPresented               // 18
+    case screeningCompleteControllerPresented             // 19
+    case instantFinishControllerPresented                 // 20
+    case screeningFinishControllerPresented               // 21
+    case terminated                                       // 22
+    case cancelledSession                                 // 23
+}
+```
+
+To subscribe to an event, use the `completion` parameter when initialising an SDK session:
+
+```swift
+try GlobalPassSDK(
+    environment: .dev,
+    screeningToken: "...",
+    completion: { event in
+        // handle event
+    }
+)
+```
 
 ## Privacy
 

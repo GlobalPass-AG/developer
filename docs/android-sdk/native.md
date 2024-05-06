@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note SDK Version
-Latest GlobalPass Android SDK version: **2.0.1**
+Latest GlobalPass Android SDK version: **2.0.2**
 :::
 
 :::info Requirements
@@ -36,13 +36,13 @@ maven {
 ```
 
 :::info
-To get a <token\> value used above, please contact **GlobalPass** support.
+To get a <token\> value used above, please contact **GlobalPass support**.
 :::
 
 ### b. Add this code to the App level build.gradle file under dependencies:
 
 ```gradle
-implementation 'ch.globalpass.sdk:release:2.0.1'
+implementation 'ch.globalpass.sdk:release:2.0.2'
 ```
 
 :::tip
@@ -134,13 +134,14 @@ globalPassSdk.start(
 
 There are additional optional parameters in start() function:
 
-| Parameter        | Description                                                           |
-| ---------------- | --------------------------------------------------------------------- |
-| enableFileLogger | Enable Logger to write SDK logs.                                      |
-| widgetMode       | Select matching widget mode if `Split` flow is used.                  |
-| externalId       | Specify your internal customer identifier to be set on the screening. |
-| languageCode     | Specify SDK language using available langauage options.               |
-| typefaceMap      | Customize SDK fonts using your own ones.                              |
+| Parameter              | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| enableFileLogger       | Enable Logger to write SDK logs.                                      |
+| widgetMode             | Select matching widget mode if `Split` flow is used.                  |
+| externalId             | Specify your internal customer identifier to be set on the screening. |
+| languageCode           | Specify SDK language using available langauage options.               |
+| typefaceMap            | Customize SDK fonts using your own ones.                              |
+| flowCallbackProvider   | FlowCallbackProvider instance to observe flow callbacks.              |
 
 ```kotlin
 globalPassSdk.start(
@@ -149,7 +150,8 @@ globalPassSdk.start(
     widgetMode:WidgetMode=WidgetMode.FULL_MODE,
     externalId:String?=null,
     languageCode:String="en",
-    typefaceMap: Map<FONT_WEIGHT, Typeface?> = null
+    typefaceMap: Map<FONT_WEIGHT, Typeface?> = null,
+    flowCallbackProvider: FlowCallbackProvider? = null
 )
 ```
 
@@ -214,3 +216,36 @@ private fun createTypefaceMap() : Map<FONT_WEIGHT, Typeface?> = mapOf(
 ```
 
 Parameter `typefaceMap` is optional and `null` by default.
+
+### flowCallbackProvider
+
+Creating and providing instance of FlowCallbackProvider allows reacting to different widget flow events:
+
+- onScreenOpened(screenName: String) when widget is opened,
+- onFlowCanceled() when widget flow is canceled (exited) by the applicant without completing it,
+- onFlowFinished() when widget flow is completed.
+
+```kotlin
+globalPassSdk.start(
+    // ...
+    flowCallbackProvider = FlowCallbackProviderImpl.flowCallbackProvider
+)
+
+object FlowCallbackProviderImpl {
+    val flowCallbackProvider = object : FlowCallbackProvider {
+        override fun onScreenOpened(screenName: String) {
+            Log.d("FLOW_CALLBACK_CHECK", "$screenName opened")
+        }
+
+        override fun onFlowCanceled() {
+            Log.d("FLOW_CALLBACK_CHECK", "Flow was cancelled")
+        }
+
+        override fun onFlowFinished() {
+            Log.d("FLOW_CALLBACK_CHECK", "Flow was finished")
+        }
+    }
+}
+```
+
+Parameter `flowCallbackProvider` is optional and `null` by default.
