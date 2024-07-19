@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Flutter
 
 :::note SDK Version
-Latest GlobalPass iOS SDK version: **2.1**
+Latest GlobalPass iOS SDK version: **2.2**
 :::
 
 :::info Requirements
