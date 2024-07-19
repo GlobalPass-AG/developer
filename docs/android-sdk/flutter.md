@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Flutter
 
 :::note SDK Version
-Latest GlobalPass Android SDK version: **2.0.2**
+Latest GlobalPass Android SDK version: **2.0.3**
 :::
 
 :::info Requirements
@@ -46,7 +46,7 @@ To get a <token\> value used above, please contact GlobalPass support.
 #### build.gradle
 
 ```gradle
-implementation 'ch.globalpass.sdk:release:2.0.2'
+implementation 'ch.globalpass.sdk:release:2.0.3'
 ```
 
 ### c. Sync gradle
