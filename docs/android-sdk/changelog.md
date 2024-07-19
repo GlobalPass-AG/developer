@@ -6,6 +6,21 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.0.3
+
+> Released on 2024-07-24
+
+New features:
+- Instant Resubmission flow without leaving the Widget after screening is completed unsuccessfully
+- Validation whether address is a PO Box
+
+New fields:
+- State field in address details
+- SSN submission with personal details
+
+Updates:
+- Facial liveness module update
+
 ### Version 2.0.2
 
 > Released on 2024-05-06
@@ -37,7 +52,7 @@ New features & updates:
 - Added POA document type selector, configured via the Portal.
 - Added option to upload ID photo from device, configured via the Portal.
 - Added Postal Code validation, if enabled in the Portal. Currently available for 30+ European countries.
-- Upgraded face liveness version.
+- Facial liveness module update.
 
 ### Version 1.2.19
 
