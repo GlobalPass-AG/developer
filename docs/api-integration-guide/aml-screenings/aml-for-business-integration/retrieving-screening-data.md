@@ -14,6 +14,7 @@ You will receive a webhook with type **business.change** whenever the screening 
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
 #### Retrieving Screening Data
 
