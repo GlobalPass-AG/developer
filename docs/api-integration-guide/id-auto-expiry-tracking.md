@@ -15,8 +15,7 @@ When an identity document of a verified user approaches expiry in _ **n** _ mont
     "type": "screening.document.expiring",
     "data": {
         "screeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
-    },
-    "secret": "secret"
+    }
 }
 ```
 

@@ -8,7 +8,6 @@ GlobalPass broadcasts live instant biometrics updates to 3rd party systems throu
 
 ```js title="Example webhook"
 {
-    "secret": "secret",
     "type": "biometrics.instant.change",
     "data": {
         "screeningToken": "screening_token",

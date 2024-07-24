@@ -13,8 +13,7 @@ When new AML-related information is available in a specific screening after a re
     "type": "screening.aml.change",
     "data": {
         "screeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
-    },
-    "secret": "secret"
+    }
 }
 ```
 

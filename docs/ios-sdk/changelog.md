@@ -6,6 +6,21 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.2
+
+> Released on 2024-07-24
+
+New features:
+- Instant Resubmission flow without leaving the Widget after screening is completed unsuccessfully
+- Validation whether address is a PO Box
+
+New fields:
+- State field in address details
+- SSN submission with personal details
+
+Updates:
+- Facial liveness module update
+
 ### Version 2.1
 
 > Released on 2024-05-06

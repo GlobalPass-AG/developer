@@ -38,8 +38,7 @@ After the forensic analysis status changes, you will receive **forensics.change*
     "data": {
         "screeningToken":"bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd",
         "ForensicAnalysisId": "b538fac5-ab02-4af6-aae0-04046eb143cc"
-    },
-    "secret": "secret"
+    }
 }
 ```
 
