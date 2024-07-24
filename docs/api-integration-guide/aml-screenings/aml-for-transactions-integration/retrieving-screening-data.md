@@ -14,6 +14,7 @@ You will receive a webhook with type **screening.aml.completed** indicating that
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
 To get overview of scan results, make an HTTP GET request to:
 

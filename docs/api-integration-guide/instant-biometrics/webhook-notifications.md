@@ -16,3 +16,4 @@ GlobalPass broadcasts live instant biometrics updates to 3rd party systems throu
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).

@@ -15,6 +15,7 @@ After this webhook you can retrieve latest data from the API.
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
 #### Retrieve Screening Status
 

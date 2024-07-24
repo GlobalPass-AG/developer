@@ -41,6 +41,7 @@ After the forensic analysis status changes, you will receive **forensics.change*
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
 To get forensics status, make an HTTP GET request to _/api/v1/screenings/{screeningToken}/forensics/{forensicsId}_
 
