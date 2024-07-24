@@ -6,15 +6,12 @@ sidebar_position: 7.1
 
 You will receive a webhook with type **screening.aml.completed** indicating that the scan has been completed.
 
-Webhooks (HTTP POST requests) will be sent to the webhook callback URL you provide to the GlobalPass support team. When receiving these requests, ensure that the body value of "secret" matches the webhook secret we will provide.
-
 ```js title="Example webhook"
 {
     "type": "screening.aml.completed",
     "data": {
         "screeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
-    },
-    "secret": "secret"
+    }
 }
 ```
 
