@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Retrieving Screening Data
 
-During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to the webhook callback URL you provide to the GlobalPass support team. When receiving these requests, ensure that the body value of "secret" matches the webhook secret we will provide.
+During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to your webhook callback URL that you can insert in the Verification Settings. Read more here: https://help.globalpass.ch/how-to-generate-api-keys-setup-webhook-location-for-integration/
 
 #### Webhook types:
 
@@ -24,8 +24,7 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
   "type": "screening.submitted",
   "data": {
     "screeningToken": "bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
-  },
-  "secret": "secret"
+  }
 }
 ```
 
@@ -34,8 +33,7 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
   "type": "screening.change",
   "data": {
     "screeningToken": "bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
-  },
-  "secret": "secret"
+  }
 }
 ```
 
@@ -44,10 +42,31 @@ During and after the screening process ends, you will receive **webhooks** (HTTP
   "type": "address.submitted",
   "data": {
     "screeningToken": "bf42e9f1-9af8-4a6b-a1fd-9440f1fe9bfd"
-  },
-  "secret": "secret"
+  }
 }
 ```
+
+#### Webhook headers:
+
+##### signature-hmac-256
+
+A hash signature (HMAC-SHA-256) is added to the webhook headers. Header name: "signature-hmac-256"
+
+This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the Webhook secret as the HMAC key.
+
+To validate a webhook, use SHA-256 hash function and your Webhook Secret (generated and visible in the Portal when adding your Webhook URL) to generate hash signature of the webhook body. Then it can be compared with the signature in the headers.
+
+Signature example:
+
+![image](https://github.com/user-attachments/assets/ed578183-239b-4c9e-8e6b-93985cd43e79)
+
+##### created-at
+
+"created-at" header contains date when the webhook was created. Using this date, webhooks can also be validated, for example, by ignoring webhooks, which were created more than 15 minutes ago.
+
+Date example:
+
+![image](https://github.com/user-attachments/assets/6dedd3cd-1a03-454e-b515-5dd2f19999ce)
 
 #### Retrieving screening status
 
