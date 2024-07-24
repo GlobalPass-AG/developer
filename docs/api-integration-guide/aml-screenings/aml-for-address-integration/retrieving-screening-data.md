@@ -12,8 +12,7 @@ After this webhook you can retrieve latest data from the API.
     "type": "screening.change",
     "data": {
         "screeningToken": "f4564d3d-69de-4093-971d-796699c0e8c5"
-    },
-    "secret": "<secret>"
+    }
 }
 ```
 
