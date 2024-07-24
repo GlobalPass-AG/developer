@@ -18,6 +18,7 @@ When an identity document of a verified user approaches expiry in _ **n** _ mont
     }
 }
 ```
+Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
 The screening status will not change. However, after this point, you can prompt the user to go through the screening process again using GlobalPass widget, providing the same screening token as initially used.
 
