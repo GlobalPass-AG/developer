@@ -6,6 +6,12 @@ sidebar_position: 2
 
 During and after the screening process ends, you will receive **webhooks** (HTTP POST requests) to your webhook callback URL that you can insert in the Verification Settings. Read more here: https://help.globalpass.ch/how-to-generate-api-keys-setup-webhook-location-for-integration/
 
+:::info IMPORTANT
+
+If you are currently using V1 webhooks version (intergation completed on July 2024 and earlier), please read [this article](https://help.globalpass.ch/updating-webhooks-from-v1-to-v2/) for update instructions.
+
+:::
+
 #### Webhook types:
 
 | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
