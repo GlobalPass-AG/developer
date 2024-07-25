@@ -12,7 +12,7 @@ This section explains integration for Multi-Asset Crypto Screening, launched in 
 
 :::note IMPORTANT
 
-Please note that POST endpoints for Crypto Screenings use the Screening API **V3** instead of V2.
+Please note that Crypto Screenings use the Screening API **V3** instead of V2.
 
 :::
 
@@ -76,10 +76,10 @@ Where:
 
 To get status of any given transaction screening, make an HTTP GET request to
 
-_/api/v2/crypto/transactions/{screeningToken}_
+_/api/v3/crypto/transactions/{screeningToken}_
 
 ```bash title="Example request"
-curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transactions/b101d8d6-de0f-45e9-9509-0d43258a416f' \-H 'accept: text/plain' \-H 'Authorization: Bearer {your_access_token}'
+curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v3/crypto/transactions/b101d8d6-de0f-45e9-9509-0d43258a416f' \-H 'accept: text/plain' \-H 'Authorization: Bearer {your_access_token}'
 ```
 
 ```js title="Example response"
@@ -90,12 +90,6 @@ curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transact
     "riskScore": 10
 }
 ```
-
-:::note IMPORTANT
-
-Please note that GET endpoints for Crypto Screenings use the Screening API **V2**.
-
-:::
 
 To access any given latest transaction screening report, you can navigate to:
 
