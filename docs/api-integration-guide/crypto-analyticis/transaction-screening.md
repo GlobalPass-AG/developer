@@ -28,7 +28,7 @@ curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v3/crypto/transact
 | -------------- | ----------------------------------------------------------------------------------------------------------- |
 | hash           | Transaction hash. _Required value_.                                                                         |
 | direction      | Specification whether you will be running a source or destination of funds analysis. _Required value_.      |
-| outputAddress  | Address of the wallet where the funds were **sent to** in the transaction. _Required value_.                |
+| outputAddress  | Address of the wallet where the funds were **sent to** in the analyzed transaction. _Required value_.       |
 | externalId     | Your custom unique identifier of the screened customer, or any other external identifier. _Required value_. |
 
 > Possible **direction** values:
