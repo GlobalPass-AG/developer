@@ -24,6 +24,8 @@ _/api/v3/crypto/transactions_
 curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v3/crypto/transactions' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}' -H 'Content-Type: application/json' -d '{"hash": "string","direction": "string","outputAddress": "string","externalId": "string"}
 ```
 
+Where:
+
 | Property       | Description                                                                                                 |
 | -------------- | ----------------------------------------------------------------------------------------------------------- |
 | hash           | Transaction hash. _Required value_.                                                                         |
