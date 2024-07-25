@@ -18,6 +18,12 @@ When new AML-related information is available in a specific screening after a re
 ```
 Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
+:::info IMPORTANT
+
+If you are currently using V1 webhooks version (intergation completed on July 2024 and earlier), please read [this article](https://help.globalpass.ch/updating-webhooks-from-v1-to-v2/) for update instructions.
+
+:::
+
 Then you can navigate to the screening report to review the AML changes:
 
 - [https://portal-test.globalpass.ch/screenings/{screeningToken}/report](https://portal-test.globalpass.ch/screenings/%7BscreeningToken%7D/report) (_sandbox_)
