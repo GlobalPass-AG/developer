@@ -4,41 +4,40 @@ sidebar_position: 1
 
 # Transaction Screening
 
+:::note IMPORTANT
+
+This section explains integration for Multi-Asset Crypto Screening, launched in July 2024. If you are currently using our older Single-Asset crypto screening version, please read [this article](https://help.globalpass.ch/updating-crypto-screening-from-single-to-multi-asset/) for update instructions.
+
+:::
+
+:::note IMPORTANT
+
+Please note that POST endpoints for Crypto Screenings use the Screening API **V3** instead of V2.
+
+:::
+
 To initiate a crypto transaction screening, make an HTTP POST request to:
 
-_/api/v2/crypto/transactions_
+_/api/v3/crypto/transactions_
 
 ```bash title="Example request"
-curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v2/crypto/transactions' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}' -H 'Content-Type: application/json' -d '{"blockchain": "string","ticker": "string","hash": "string","direction": "string","outputAddress": "string","outputIndices": [0]"logIndex": 0,"externalId": "string"}
+curl -X 'POST' 'https://screenings-api-test.globalpass.ch/api/v3/crypto/transactions' -H 'accept: text/plain' -H 'Authorization: Bearer {your_access_token}' -H 'Content-Type: application/json' -d '{"hash": "string","direction": "string","outputAddress": "string","externalId": "string"}
 ```
 
-Note that crypto transaction request parameters depend on the asset of the screened transaction, which is explained below.
-
-| Property   | Description                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------ |
-| blockchain | Full name of the blockchain of the screened transaction. _Required value_.                             |
-| ticker     | Ticker of the asset of the screened transaction. _Required value_.                                     |
-| hash       | Transaction hash. _Required value_.                                                                    |
-| direction  | Specification whether you will be running a source or destination of funds analysis. _Required value_. |
+| Property       | Description                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------- |
+| hash           | Transaction hash. _Required value_.                                                                         |
+| direction      | Specification whether you will be running a source or destination of funds analysis. _Required value_.      |
+| outputAddress  | Address of the wallet where the funds were **sent to** in the transaction. _Required value_.                |
+| externalId     | Your custom unique identifier of the screened customer, or any other external identifier. _Required value_. |
 
 > Possible **direction** values:
 
 - source_of_funds – gets details of the entities that have contributed funds to the transaction's source address and calculates a risk score based on this exposure
 - destination_of_funds – gets details of the entities that funds have gone to from this transaction's destination address and calculate a risk score based on this exposure
 
-Additional properties may be required in some cases:
-
-| Property      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| outputAddress | Address of the output wallet of the transaction. _Required value only for Bitcoin and Tron blockchain transactions_, as these assets can have multiple outputs. For example, if you are analyzing a deposit into your service then you might want to specify the output address that belongs to your service. Or for a withdrawal, it might be the output address that your customer wants to send funds to.                                                       |
-| outputIndices | Zero-indexed output indices, an alternative method of specifying the relevant output of the transaction if output address is unknown. When specifying the output(s) by indices, if the provided indices reference multiple distinct addresses, the API will respond with an error.                                                                                                                                                                                 |
-| logIndex      | [log_index](https://web3js.readthedocs.io/en/v1.2.9/web3-eth-contract.html?highlight=logindex#id37) is a necessary parameter for Ethereum blockchain transactions (except from Ether) that contain multiple ERC20 token transfers. If a screened transaction contains transfers of than more than one token, the API will respond with an error requesting to specify the log*index value. \_Optional value for all Ethereum blockchain assets except from Ether*. |
-| externalId    | Unique identifier of the user in your system. _Required value_.                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-```js title="Example Bitcoin Destination of Funds request body"
+```js title="Example Destination of Funds request"
 {
-    "blockchain": "bitcoin",
-    "ticker": "BTC",
     "hash": "166e2010fd6141b65ac6659ed93b832787ae6241a4998dd0db61189869d1f32e",
     "direction": "destination_of_funds",
     "outputAddress": "3FjSB2Db9KiJi1KLRwvctwZ23an2yV8vwF",
@@ -46,38 +45,14 @@ Additional properties may be required in some cases:
 }
 ```
 
-```js title="Example Ether Destination of Funds request body"
+```js title="Example Source of Funds request"
 {
-    "blockchain": "ethereum",
-    "ticker": "ETH",
-    "hash": "0x8f421010cb339e407a431712bb6f75921e80abc78a2f53e34dc51479ba87bb4d",
-    "direction": "destination_of_funds",
-    "externalId": "ABC001"}
-```
-
-```js title="Example USDT (Ethereum) Source of Funds request body"
-{
-    "blockchain": "ethereum",
-    "ticker": "USDT",
-    "hash": "0x8f421010cb339e407a431712bb6f75921e80abc78a2f53e34dc51479ba87bb4d",
+    "hash": "166e2010fd6141b65ac6659ed93b832787ae6241a4998dd0db61189869d1f32e",
     "direction": "source_of_funds",
-    "logIndex": "125",
-    "externalId": "A0001"
+    "outputAddress": "3FjSB2Db9KiJi1KLRwvctwZ23an2yV8vwF",
+    "externalId": "User123"
 }
 ```
-
-```js title="Example USDT (Tron) Source of Funds request body"
-{
-    "blockchain": "tron",
-    "ticker": "USDT",
-    "hash": "53a5ff1fc8c656deb96e51fe13efecb0770fe0ca0e911a25e75711a466079e6f",
-    "direction": "source_of_funds",
-    "outputAddress": "TVj43VT4UXej73FEcrPCs2Tcm6bcZfH92Q",
-    "externalId": "DEF501"
-}
-```
-
-Responses will be unified in all request types.
 
 ```js title="Example response"
 {
@@ -93,9 +68,9 @@ Where:
 | Property       | Description                                                                                                                                                                                       |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id             | Unique identifier of the specific screening of the transaction. If rescreening of the same transaction will be performed, the ID value will refer to the exact screening of the same transaction. |
-| screeningToken | Unique identifier of the screened transaction in the GlobalPass system                                                                                                                            |
-| created        | Timestamp of when the specific screening of the transaction was performed                                                                                                                         |
-| riskScore      | Transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level)                                                    |
+| screeningToken | Unique identifier of the screened transaction in the GlobalPass system.                                                                                                                            |
+| created        | Timestamp of when the specific screening of the transaction was performed.                                                                                                                         |
+| riskScore      | Transaction's risk value based on exposure in the screened direction, between 0 (no risk rules triggered) and 10 (highest possible risk level).                                                    |
 
 To get status of any given transaction screening, make an HTTP GET request to
 
@@ -113,6 +88,12 @@ curl -X 'GET' \'https://screenings-api-test.globalpass.ch/api/v2/crypto/transact
     "riskScore": 10
 }
 ```
+
+:::note IMPORTANT
+
+Please note that GET endpoints for Crypto Screenings use the Screening API **V2**.
+
+:::
 
 To access any given latest transaction screening report, you can navigate to:
 
