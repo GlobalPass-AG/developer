@@ -16,6 +16,12 @@ You will receive a webhook with type **business.change** whenever the screening 
 ```
 Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
+:::info IMPORTANT
+
+If you are currently using V1 webhooks version (intergation completed on July 2024 and earlier), please read [this article](https://help.globalpass.ch/updating-webhooks-from-v1-to-v2/) for update instructions.
+
+:::
+
 #### Retrieving Screening Data
 
 After receiving this webhook, you can get screening status by making an HTTP GET request to:
