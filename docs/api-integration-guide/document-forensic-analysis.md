@@ -43,6 +43,12 @@ After the forensic analysis status changes, you will receive **forensics.change*
 ```
 Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
+:::info IMPORTANT
+
+If you are currently using V1 webhooks version (intergation completed on July 2024 and earlier), please read [this article](https://help.globalpass.ch/updating-webhooks-from-v1-to-v2/) for update instructions.
+
+:::
+
 To get forensics status, make an HTTP GET request to _/api/v1/screenings/{screeningToken}/forensics/{forensicsId}_
 
 ```bash title="Example request"
