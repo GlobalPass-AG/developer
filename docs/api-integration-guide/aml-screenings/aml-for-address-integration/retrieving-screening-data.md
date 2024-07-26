@@ -17,6 +17,12 @@ After this webhook you can retrieve latest data from the API.
 ```
 Read about webhook headers [here](https://developer.globalpass.ch/api-integration-guide/kyc-screenings/retrieving-screening-data#webhook-headers).
 
+:::info IMPORTANT
+
+If you are currently using V1 webhooks version (intergation completed on July 2024 and earlier), please read [this article](https://help.globalpass.ch/updating-webhooks-from-v1-to-v2/) for update instructions.
+
+:::
+
 #### Retrieve Screening Status
 
 To get screenings status, make a HTTP GET request to:
