@@ -54,13 +54,13 @@ If you are currently using V1 webhooks version (intergation completed on July 20
 
 #### Webhook headers:
 
-##### X-GP-Signature
+##### `X-GP-Signature`
 
 A hash signature (HMAC-SHA-256) is added to the webhook headers. This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `Webhook secret` as the HMAC `key`.
 
 To validate a webhook, use the SHA-256 hash function and your Webhook Secret (generated and visible in the Portal when adding your Webhook URL) to generate hash signature of the webhook body. Then it can be compared with the signature in the headers.
 
-##### X-GP-Created-At
+##### `X-GP-Created-At`
 
 This header contains date when the webhook was created. Using this date, webhooks can also be validated, for example, by ignoring webhooks which were created more than 15 minutes ago.
 
