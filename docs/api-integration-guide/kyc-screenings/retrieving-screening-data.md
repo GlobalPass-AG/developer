@@ -54,25 +54,15 @@ If you are currently using V1 webhooks version (intergation completed on July 20
 
 #### Webhook headers:
 
-##### signature-hmac-256
+##### X-GP-Signature
 
-A hash signature (HMAC-SHA-256) is added to the webhook headers. Header name: "signature-hmac-256"
+A hash signature (HMAC-SHA-256) is added to the webhook headers. This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `Webhook secret` as the HMAC `key`.
 
-This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the Webhook secret as the HMAC key.
+To validate a webhook, use the SHA-256 hash function and your Webhook Secret (generated and visible in the Portal when adding your Webhook URL) to generate hash signature of the webhook body. Then it can be compared with the signature in the headers.
 
-To validate a webhook, use SHA-256 hash function and your Webhook Secret (generated and visible in the Portal when adding your Webhook URL) to generate hash signature of the webhook body. Then it can be compared with the signature in the headers.
+##### X-GP-Created-At
 
-Signature example:
-
-![image](https://github.com/user-attachments/assets/ed578183-239b-4c9e-8e6b-93985cd43e79)
-
-##### created-at
-
-"created-at" header contains date when the webhook was created. Using this date, webhooks can also be validated, for example, by ignoring webhooks, which were created more than 15 minutes ago.
-
-Date example:
-
-![image](https://github.com/user-attachments/assets/6dedd3cd-1a03-454e-b515-5dd2f19999ce)
+This header contains date when the webhook was created. Using this date, webhooks can also be validated, for example, by ignoring webhooks which were created more than 15 minutes ago.
 
 #### Retrieving screening status
 
