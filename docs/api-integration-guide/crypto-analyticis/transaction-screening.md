@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # Transaction Screening
 
-:::note IMPORTANT
+:::info IMPORTANT
 
 This section explains integration for Multi-Asset Crypto Screening, launched in July 2024. If you are currently using our older Single-Asset crypto screening version, please read [this article](https://help.globalpass.ch/updating-crypto-screening-from-single-to-multi-asset/) for update instructions.
 
 :::
 
-:::note IMPORTANT
+:::info IMPORTANT
 
 Please note that Crypto Screenings use the Screening API **V3** instead of V2.
 
