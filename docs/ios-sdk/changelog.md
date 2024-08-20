@@ -6,6 +6,12 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.3
+
+> Released on 2024-08-16
+
+- Updated the certificate to resolve a certificate-related issue some developers were experiencing.
+
 ### Version 2.2
 
 > Released on 2024-07-24
