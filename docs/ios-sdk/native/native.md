@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note SDK Version
-Latest GlobalPass iOS SDK version: **2.2**
+Latest GlobalPass iOS SDK version: **2.3**
 :::
 
 :::info Requirements
@@ -35,7 +35,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 Under the application module declare the following dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 2.2'
+pod 'GlobalPass', '~> 2.3'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.3'
 pod `lottie-ios`, `~> 4.3.4`
 ```
