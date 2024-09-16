@@ -17,7 +17,7 @@ To activate the feature, follow these steps:
 2. Check whether `Geolocation Verification` setting is active for your account. If it is not activated, discuss enabling the feature with your account manager.
 3. Head over to `Address Verification Settings` below, and turn on `Generate GPS-Based Address Verification Reports` setting.
 
-:::tip NOTE
+:::info NOTE
 An `Admin` or `Settings Manager` role is required to edit the settings.
 :::
 
@@ -52,7 +52,7 @@ To retrieve the latest available report, make an HTTP GET request to:
 
 _api/v3/gps-address/{screeningToken}/report_
 
-:::tip IMPORTANT
+:::info IMPORTANT
 Please note that API V3 version is used for GPS-Based Address Verification Reports
 :::
 
