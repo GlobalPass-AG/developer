@@ -52,3 +52,20 @@ To retrieve the latest available report, make an HTTP GET request to:
 
 _api/v3/gps-address/{screeningToken}/report_
 
+:::tip IMPORTANT
+Please note that API V3 version is used for GPS-Based Address Verification Reports
+:::
+
+To get history of all past reports, make an HTTP GET request to:
+
+_/api/v3/gps-address/{screeningToken}/report/history_
+
+Response will contain report IDs and timestamps of all previously generated reports.
+
+To request a specific report, make an HTTP GET request by specifying both the `screening token` and `report ID` to:
+
+_/api/v3/gps-address/{screeningToken}/report/{reportId}_
+
+To trigger a generation of a new report, make an HTTP POST request to:
+
+_/api/v3/gps-address/{screeningToken}/report_
