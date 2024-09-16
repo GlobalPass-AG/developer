@@ -12,7 +12,7 @@ If you are currently using V1 webhooks version (intergation completed on July 20
 
 :::
 
-#### Webhook types:
+### Webhook types
 
 | Type                       | Description         |
 | -------------------------- | ----------------------------------------------- |
@@ -65,7 +65,7 @@ To validate a webhook, use the SHA-256 hash function and your Webhook Secret (ge
 
 This header contains date when the webhook was created. Using this date, webhooks can also be validated, for example, by ignoring webhooks which were created more than 15 minutes ago.
 
-#### Retrieving screening status
+### Retrieving screening status
 
 To get screenings status, make an HTTP GET request to:
 
@@ -152,7 +152,7 @@ isActive is not returned in Address mode.
 
 If **rejectReason** is "BadData" or "DocumentExpired", you should prompt the user to go through the widget process again and provide the **same screening token** as used in the previous user's session to the widget. This way user will only need to repeat the specific screening sections that he failed during the previous attempt, and his screening report will update with the newly provided data.
 
-#### Retrieving full screening data
+### Retrieving full screening data
 
 To get full screening data, make an HTTP GET request to:
 
@@ -203,7 +203,7 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
 
 Country codes are provided in [ISO 3166-1 Alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
 
-#### Retrieving AML scan results
+### Retrieving AML scan results
 
 To retrieve **AML scan results** from a completed screening, make an HTTP GET request to:
 
@@ -268,7 +268,7 @@ Where:
 | source.countryName | Full name of the country that listed the hit (e.g., country that released a sanction list where the hit was count). Will return full country name of the source when the hit was found on an original list. Will return "International" when the hit was found in media sources, or in case of "Consolidated Sanctions List" hit. |
 | source.countryCode | 3-letter code in _ISO 3166-1 Alpha-3_ format of the country that released the hit. Available only when countryName is not "International", but a specific country.                                                                                                                                                                |
 
-#### Changing screening state
+### Changing screening state
 
 :::note
 Changing screening state is only relevant if you use ongoing AML screening services. Screenings set as Inactive will not be included in the ongoing AML scan process, even if they have Accepted status. If required, it is possible to revert the state to Active afterwards, and the ongoing AML process will be resumed for that screening.
@@ -294,7 +294,7 @@ curl --location  --request PUT 'https://screenings-api-test.globalpass.ch/api/v2
 
 If the state change is successful, API will respond with code 204.
 
-#### Accessing screening reports
+### Accessing screening reports
 
 To access any given screening report, you can navigate to:
 
