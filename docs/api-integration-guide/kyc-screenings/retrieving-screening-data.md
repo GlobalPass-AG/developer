@@ -156,9 +156,9 @@ If **rejectReason** is "BadData" or "DocumentExpired", you should prompt the use
 
 To get full screening data, make an HTTP GET request to:
 
-_/api/v2/screenings/{screeningToken}_ – identity mode & regular
+_/api/v3/screenings/{screeningToken}_ – identity mode & regular
 
-_/api/v2/screenings/{screeningToken}/address_ – address mode
+_/api/v3/screenings/{screeningToken}/address_ – address mode
 
 ```bash title="Example request"
 curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/screenings/9519c730-5d6e-4c23-b89a-8c4d06899e7f' --header 'Authorization: Bearer {your_access_token}'
@@ -197,7 +197,14 @@ curl --location --request GET 'https://screenings-api-test.globalpass.ch/api/v2/
         "city": "Zug",
         "address": "Metallstrasse 8",
         "postCode": "6300"
-    }
+        "state": "string",
+        "distanceToDeviceLocation": 0
+    },
+    "gpsAddressData": {
+        "isGpsAddressVerificationEnabled": true,
+        "maxAllowedDistanceInMeters": 0,
+        "calculatedDistanceInMeters": 0
+  }
 }
 ```
 
