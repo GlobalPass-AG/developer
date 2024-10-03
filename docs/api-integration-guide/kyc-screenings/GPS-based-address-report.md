@@ -78,3 +78,24 @@ In case there is a need, it is possible to trigger generation of a new GPS-Based
 _/api/v3/gps-address/{screeningToken}/report_
 
 When the report is ready (given the conditions of successful generation are passed), a webhook notification will inform when it is ready to retrieve.
+
+### Retrieving calculated distance
+
+The endpoint to retrieve screening details contains the calculated distance between address and device.
+
+If you use Regular flow, make an HTTP GET call to:
+
+_/api/v3/screenings/{screeningToken}_
+
+If you use Split flow, make an HTTP GET call to:
+
+_/api/v3/screenings/address/{screeningToken}_
+
+```js title="Example response"
+{
+  "gpsAddressData": {
+    "isGpsAddressVerificationEnabled": true,
+    "maxAllowedDistanceInMeters": 5000,
+    "calculatedDistanceInMeters": 68476
+  }
+}
