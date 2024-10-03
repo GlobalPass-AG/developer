@@ -79,7 +79,7 @@ _/api/v3/gps-address/{screeningToken}/report_
 
 When the report is ready (given the conditions of successful generation are passed), a webhook notification will inform when it is ready to retrieve.
 
-### Retrieving calculated distance
+### Retrieving Calculated Distance
 
 The endpoint to retrieve screening details contains the calculated distance between address and device.
 
