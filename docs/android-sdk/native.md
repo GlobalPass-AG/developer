@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Native
 
 :::note SDK Version
-Latest GlobalPass Android SDK version: **2.0.3**
+Latest GlobalPass Android SDK version: **2.0.4**
 :::
 
 :::info Requirements
@@ -42,7 +42,7 @@ To get a <token\> value used above, please contact **GlobalPass support**.
 ### b. Add this code to the App level build.gradle file under dependencies:
 
 ```gradle
-implementation 'ch.globalpass.sdk:release:2.0.3'
+implementation 'ch.globalpass.sdk:release:2.0.4'
 ```
 
 :::tip
