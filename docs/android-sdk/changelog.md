@@ -6,6 +6,12 @@ hide_table_of_contents: true
 
 Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find the list of latest releases with release notes.
 
+### Version 2.0.4
+
+> Released on 2024-10-21
+
+- Updated facial liveness module
+
 ### Version 2.0.3
 
 > Released on 2024-07-24
