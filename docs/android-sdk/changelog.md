@@ -12,10 +12,6 @@ Welcome to the Changelog to the GlobalPass **Android SDK**. Below you can find t
 
 - Updated facial liveness module
 
-:::info Important
-Please make sure the latest FaceTecSDK dependency pod version 0.0.5 is installed while updating GlobalPass SDK.
-:::
-
 ### Version 2.0.3
 
 > Released on 2024-07-24

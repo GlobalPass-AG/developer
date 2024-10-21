@@ -12,6 +12,10 @@ Welcome to the Changelog to the GlobalPass **iOS SDK**. Below you can find the l
 
 - Updated facial liveness module
 
+:::info Important
+Please make sure the latest FaceTecSDK dependency pod version 0.0.5 is installed while updating GlobalPass SDK.
+:::
+
 ### Version 2.3
 
 > Released on 2024-08-16
