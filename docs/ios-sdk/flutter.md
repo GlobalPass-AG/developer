@@ -5,7 +5,7 @@ hide_table_of_contents: true
 # Flutter
 
 :::note SDK Version
-Latest GlobalPass iOS SDK version: **2.4**
+Latest GlobalPass iOS SDK version: **2.5**
 :::
 
 :::info Requirements
@@ -35,7 +35,7 @@ source 'https://dev.azure.com/isun-ag/GlobalPassApp-Public/_git/GlobalPassApp-sd
 Under the application module declare the following dependencies:
 
 ```ruby
-pod 'GlobalPass', '~> 2.4'
+pod 'GlobalPass', '~> 2.5'
 pod 'FaceTecSDK', :http => 'https://dev.azure.com/isun-ag/368936e7-5cb5-4092-96c5-fe9942e2c3e1/_apis/packaging/feeds/FaceTecSDK/upack/packages/facetecsdk/versions/0.0.6'
 pod `lottie-ios`, `~> 4.3.4`
 ```
